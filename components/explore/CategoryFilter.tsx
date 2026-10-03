@@ -27,10 +27,10 @@ export function CategoryFilter({
           <button
             key={item.id}
             onClick={() => onSelectCategory(item.id)}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 apple-pressable ${
               isSelected
-                ? "bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20 scale-[1.02]"
-                : "bg-zinc-900/80 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 border border-white/5"
+                ? "bg-gradient-to-b from-orange-400 to-orange-600 text-white shadow-md shadow-orange-500/25 border-t border-white/30"
+                : "bg-white/8 hover:bg-white/12 text-zinc-300 hover:text-white border border-white/10"
             }`}
           >
             {item.emoji && <span className="text-xs">{item.emoji}</span>}

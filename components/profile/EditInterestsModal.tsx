@@ -44,29 +44,32 @@ export function EditInterestsModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 bg-black/75 backdrop-blur-md"
         />
 
         <motion.div
           initial={{ y: "100%", opacity: 0.5 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: "100%", opacity: 0 }}
-          transition={{ type: "spring", damping: 25, stiffness: 280 }}
-          className="relative w-full max-w-[480px] bg-zinc-900 border-t sm:border border-white/10 rounded-t-3xl sm:rounded-2xl p-5 shadow-2xl z-10 max-h-[85vh] flex flex-col"
+          transition={{ type: "spring", damping: 28, stiffness: 300 }}
+          className="relative w-full max-w-[480px] apple-sheet rounded-t-[36px] sm:rounded-[36px] p-5 pt-3 shadow-2xl z-10 max-h-[85vh] flex flex-col"
         >
+          {/* iOS Grab Handle */}
+          <div className="apple-grab-handle" />
+
           <div className="flex items-center justify-between pb-3 border-b border-white/10">
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
+              <h3 className="apple-heading text-base flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-orange-400" />
                 Edit Interests
               </h3>
-              <p className="text-xs text-zinc-400">
+              <p className="apple-subheadline text-xs mt-0.5">
                 Update what activities you want to see
               </p>
             </div>
             <button
               onClick={onClose}
-              className="p-1.5 text-zinc-400 hover:text-white rounded-full bg-zinc-800 transition-colors"
+              className="p-1.5 text-zinc-400 hover:text-white rounded-full bg-white/10 apple-pressable transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
@@ -79,10 +82,10 @@ export function EditInterestsModal({
                 <button
                   key={cat.id}
                   onClick={() => toggle(cat.id)}
-                  className={`p-3 rounded-xl border text-left flex items-center justify-between transition-all ${
+                  className={`p-3 rounded-2xl border text-left flex items-center justify-between transition-all apple-pressable ${
                     isChecked
-                      ? "bg-zinc-800 border-orange-500 text-white"
-                      : "bg-zinc-800/40 border-white/5 text-zinc-400 hover:bg-zinc-800"
+                      ? "bg-zinc-800/90 border-orange-500 text-white shadow-sm ring-1 ring-orange-500/40"
+                      : "bg-white/6 border-white/8 text-zinc-400 hover:bg-white/10"
                   }`}
                 >
                   <div className="flex items-center gap-2">
@@ -100,14 +103,14 @@ export function EditInterestsModal({
           <div className="pt-3 border-t border-white/10 flex gap-2">
             <button
               onClick={onClose}
-              className="w-1/2 py-3 rounded-xl bg-zinc-800 text-xs font-bold text-zinc-300 hover:bg-zinc-700"
+              className="apple-btn-secondary w-1/2 text-xs"
             >
               Cancel
             </button>
             <button
               onClick={handleSave}
               disabled={selected.length === 0}
-              className="w-1/2 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-xs font-bold text-white shadow-lg shadow-orange-500/20 disabled:opacity-50"
+              className="apple-btn-primary w-1/2 text-xs disabled:opacity-50"
             >
               Save ({selected.length})
             </button>

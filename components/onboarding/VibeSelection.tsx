@@ -22,17 +22,17 @@ export function VibeSelection({
   const canProceed = selectedVibes.length >= 1;
 
   return (
-    <div className="relative min-h-dvh flex flex-col justify-between p-6 bg-zinc-950">
+    <div className="relative min-h-dvh flex flex-col justify-between p-6 bg-gradient-to-b from-[#0e0e13] via-[#070709] to-[#020204]">
       {/* Top Header */}
       <div>
         <div className="flex items-center justify-between pt-4 pb-4">
           <button
             onClick={onBack}
-            className="text-xs text-zinc-400 hover:text-white px-2 py-1 -ml-2 transition-colors"
+            className="text-xs text-zinc-400 hover:text-white px-2 py-1 -ml-2 transition-colors apple-pressable"
           >
             ← Back
           </button>
-          <span className="text-[11px] font-semibold tracking-wider text-orange-400 uppercase">
+          <span className="text-[11px] font-bold tracking-wider text-orange-400 uppercase">
             Step 3 of 3
           </span>
         </div>
@@ -40,23 +40,23 @@ export function VibeSelection({
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ type: "spring", damping: 25, stiffness: 280 }}
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-medium mb-2.5">
-            <Compass className="w-3.5 h-3.5" />
+          <div className="apple-badge bg-orange-500/15 text-orange-300 border-orange-500/30 mb-2.5">
+            <Compass className="w-3.5 h-3.5 text-orange-400" />
             <span>Intent & Atmosphere</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-3xl apple-heading">
             What&apos;s your vibe?
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 mt-1 leading-relaxed">
+          <p className="apple-subheadline text-xs sm:text-sm mt-1 leading-relaxed">
             What kind of plans are you looking for?
           </p>
         </motion.div>
       </div>
 
-      {/* Vibes List */}
+      {/* Vibes List with Apple continuous rounded cards */}
       <div className="my-auto py-3 space-y-2.5 overflow-y-auto no-scrollbar max-h-[52vh]">
         {VIBES.map((vibe, idx) => {
           const isSelected = selectedVibes.includes(vibe.id);
@@ -66,21 +66,21 @@ export function VibeSelection({
               type="button"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, delay: idx * 0.04 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300, delay: idx * 0.04 }}
               onClick={() => onToggleVibe(vibe.id)}
-              className={`w-full text-left p-3.5 rounded-2xl border transition-all flex items-center justify-between group ${
+              className={`w-full text-left p-3.5 rounded-2xl border transition-all flex items-center justify-between apple-pressable group ${
                 isSelected
-                  ? "bg-zinc-900 border-orange-500 shadow-[0_0_15px_-4px_rgba(249,115,22,0.3)] ring-1 ring-orange-500/40"
-                  : "bg-zinc-900/60 border-white/5 hover:border-white/20 hover:bg-zinc-900"
+                  ? "bg-zinc-900/90 border-orange-500 shadow-[0_0_20px_-4px_rgba(249,115,22,0.3)] ring-1 ring-orange-500/40"
+                  : "bg-white/6 border-white/10 hover:border-white/20 hover:bg-white/10"
               }`}
             >
               <div className="flex items-center gap-3">
                 <span className="text-2xl">{vibe.emoji}</span>
                 <div>
-                  <span className="font-bold text-sm text-zinc-100 block">
+                  <span className="font-bold text-sm text-zinc-100 block tracking-tight">
                     {vibe.label}
                   </span>
-                  <span className="text-xs text-zinc-400 block mt-0.5">
+                  <span className="apple-caption text-xs text-zinc-400 block mt-0.5">
                     {vibe.tagline}
                   </span>
                 </div>
@@ -89,8 +89,8 @@ export function VibeSelection({
               <div
                 className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ml-2 transition-colors ${
                   isSelected
-                    ? "bg-orange-500 text-white"
-                    : "border border-zinc-700 bg-zinc-800"
+                    ? "bg-orange-500 text-white shadow-sm"
+                    : "border border-white/20 bg-white/5"
                 }`}
               >
                 {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
@@ -105,17 +105,17 @@ export function VibeSelection({
         <button
           onClick={onNext}
           disabled={!canProceed}
-          className={`w-full py-4 px-6 rounded-2xl font-bold text-base shadow-xl transition-all flex items-center justify-center gap-2 ${
+          className={`w-full py-4 px-6 rounded-2xl font-bold text-base transition-all flex items-center justify-center gap-2 apple-pressable ${
             canProceed
-              ? "bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-orange-500/20 active:scale-[0.98]"
-              : "bg-zinc-800 text-zinc-500 cursor-not-allowed border border-white/5"
+              ? "apple-btn-primary shadow-xl"
+              : "bg-zinc-900 text-zinc-600 cursor-not-allowed border border-white/8"
           }`}
         >
           <span>Let&apos;s see what&apos;s around</span>
           <ArrowRight className="w-5 h-5" />
         </button>
 
-        <p className="text-center text-[11px] text-zinc-500 mt-2">
+        <p className="text-center apple-caption text-[11px] mt-2">
           {selectedVibes.length} vibes selected
         </p>
       </div>

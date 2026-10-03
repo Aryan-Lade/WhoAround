@@ -22,17 +22,17 @@ export function InterestSelection({
   const canProceed = selectedInterests.length >= 2;
 
   return (
-    <div className="relative min-h-dvh flex flex-col justify-between p-6 bg-zinc-950">
+    <div className="relative min-h-dvh flex flex-col justify-between p-6 bg-gradient-to-b from-[#0e0e13] via-[#070709] to-[#020204]">
       {/* Top Header */}
       <div>
         <div className="flex items-center justify-between pt-4 pb-4">
           <button
             onClick={onBack}
-            className="text-xs text-zinc-400 hover:text-white px-2 py-1 -ml-2 transition-colors"
+            className="text-xs text-zinc-400 hover:text-white px-2 py-1 -ml-2 transition-colors apple-pressable"
           >
             ← Back
           </button>
-          <span className="text-[11px] font-semibold tracking-wider text-orange-400 uppercase">
+          <span className="text-[11px] font-bold tracking-wider text-orange-400 uppercase">
             Step 2 of 3
           </span>
         </div>
@@ -40,23 +40,23 @@ export function InterestSelection({
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ type: "spring", damping: 25, stiffness: 280 }}
         >
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-medium mb-2.5">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="apple-badge bg-orange-500/15 text-orange-300 border-orange-500/30 mb-2.5">
+            <Sparkles className="w-3.5 h-3.5 text-orange-400" />
             <span>Personalized Discovery</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-3xl apple-heading">
             What are you into?
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 mt-1 leading-relaxed">
+          <p className="apple-subheadline text-xs sm:text-sm mt-1 leading-relaxed">
             Pick what you&apos;d actually do. (Select at least 2)
           </p>
         </motion.div>
       </div>
 
-      {/* Categories Grid */}
+      {/* Categories Grid with Apple continuous rounding */}
       <div className="my-auto py-3 max-h-[56vh] overflow-y-auto no-scrollbar grid grid-cols-2 gap-2.5">
         {CATEGORIES.map((cat, idx) => {
           const isSelected = selectedInterests.includes(cat.id);
@@ -64,14 +64,14 @@ export function InterestSelection({
             <motion.button
               key={cat.id}
               type="button"
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.25, delay: idx * 0.02 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300, delay: idx * 0.02 }}
               onClick={() => onToggleInterest(cat.id)}
-              className={`p-3 rounded-2xl border text-left transition-all relative flex flex-col justify-between h-24 group ${
+              className={`p-3.5 rounded-2xl border text-left transition-all relative flex flex-col justify-between h-24 apple-pressable group ${
                 isSelected
-                  ? "bg-zinc-900 border-orange-500 shadow-[0_0_15px_-4px_rgba(249,115,22,0.3)] ring-1 ring-orange-500/50"
-                  : "bg-zinc-900/60 border-white/5 hover:border-white/20 hover:bg-zinc-900"
+                  ? "bg-zinc-900/90 border-orange-500 shadow-[0_0_20px_-4px_rgba(249,115,22,0.3)] ring-1 ring-orange-500/40"
+                  : "bg-white/6 border-white/10 hover:border-white/20 hover:bg-white/10"
               }`}
             >
               <div className="flex items-center justify-between w-full">
@@ -79,8 +79,8 @@ export function InterestSelection({
                 <div
                   className={`w-5 h-5 rounded-full flex items-center justify-center transition-colors ${
                     isSelected
-                      ? "bg-orange-500 text-white"
-                      : "border border-zinc-700 bg-zinc-800"
+                      ? "bg-orange-500 text-white shadow-sm"
+                      : "border border-white/20 bg-white/5"
                   }`}
                 >
                   {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
@@ -88,10 +88,10 @@ export function InterestSelection({
               </div>
 
               <div>
-                <span className="font-bold text-sm text-zinc-100 block">
+                <span className="font-bold text-sm text-zinc-100 block tracking-tight">
                   {cat.label}
                 </span>
-                <span className="text-[10px] text-zinc-400 line-clamp-1 block">
+                <span className="apple-caption text-[10px] text-zinc-400 line-clamp-1 block">
                   {cat.description.split(",")[0]}
                 </span>
               </div>
@@ -105,17 +105,17 @@ export function InterestSelection({
         <button
           onClick={onNext}
           disabled={!canProceed}
-          className={`w-full py-4 px-6 rounded-2xl font-bold text-base shadow-xl transition-all flex items-center justify-center gap-2 ${
+          className={`w-full py-4 px-6 rounded-2xl font-bold text-base transition-all flex items-center justify-center gap-2 apple-pressable ${
             canProceed
-              ? "bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-orange-500/20 active:scale-[0.98]"
-              : "bg-zinc-800 text-zinc-500 cursor-not-allowed border border-white/5"
+              ? "apple-btn-primary shadow-xl"
+              : "bg-zinc-900 text-zinc-600 cursor-not-allowed border border-white/8"
           }`}
         >
           <span>Show me what&apos;s around</span>
           <ArrowRight className="w-5 h-5" />
         </button>
 
-        <p className="text-center text-[11px] text-zinc-500 mt-2">
+        <p className="text-center apple-caption text-[11px] mt-2">
           {selectedInterests.length === 0
             ? "Pick at least 2 interests to unlock matching"
             : selectedInterests.length === 1

@@ -24,22 +24,22 @@ export function PlanCard({
   return (
     <div
       onClick={onOpenDetails}
-      className="p-4 rounded-2xl bg-zinc-900/80 border border-white/10 hover:border-white/20 transition-all cursor-pointer relative overflow-hidden group shadow-lg"
+      className="p-4 rounded-[26px] bg-white/6 hover:bg-white/9 border border-white/10 hover:border-white/20 transition-all cursor-pointer relative overflow-hidden group shadow-lg apple-pressable backdrop-blur-xl"
     >
       <div className="flex items-start gap-3.5">
         {/* Thumbnail Image */}
-        <div className="relative w-20 h-24 rounded-xl overflow-hidden shrink-0 bg-zinc-800">
+        <div className="relative w-20 h-24 rounded-2xl overflow-hidden shrink-0 bg-zinc-800 border border-white/10">
           <Image
             src={activity.image}
             alt={activity.title}
             fill
             unoptimized
             sizes="80px"
-            className="object-cover group-hover:scale-105 transition-transform"
+            className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
           <span
-            className="absolute bottom-1 left-1 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase"
+            className="absolute bottom-1 left-1 px-1.5 py-0.5 rounded-md text-[9px] font-bold uppercase backdrop-blur-md"
             style={{
               backgroundColor: categoryInfo.bgLight,
               color: "#ffffff",
@@ -56,23 +56,23 @@ export function PlanCard({
               {activity.category}
             </span>
             {isUserCreated ? (
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-300 border border-orange-500/30">
+              <span className="apple-badge bg-orange-500/20 text-orange-300 border-orange-500/30 text-[9px] py-0.5 px-2">
                 Created by you
               </span>
             ) : (
-              <span className="text-[10px] text-zinc-400 font-medium">
+              <span className="apple-caption text-[10px] text-zinc-400 font-medium">
                 {activity.distance}
               </span>
             )}
           </div>
 
-          <h3 className="font-bold text-sm text-white truncate leading-tight group-hover:text-orange-400 transition-colors">
+          <h3 className="font-bold text-sm text-white truncate leading-tight tracking-tight group-hover:text-orange-400 transition-colors">
             {activity.title}
           </h3>
 
           <div className="flex items-center gap-1.5 text-xs text-zinc-300 mt-1">
             <Calendar className="w-3.5 h-3.5 text-orange-400 shrink-0" />
-            <span className="truncate">{activity.date}</span>
+            <span className="truncate font-medium">{activity.date}</span>
             <span className="text-zinc-500">·</span>
             <span>{activity.time.split(" - ")[0]}</span>
           </div>
@@ -83,7 +83,7 @@ export function PlanCard({
           </div>
 
           {/* Social status footer */}
-          <div className="flex items-center justify-between mt-2.5 pt-2 border-t border-white/5">
+          <div className="flex items-center justify-between mt-2.5 pt-2 border-t border-white/8">
             <div className="flex items-center gap-1.5 text-[11px] text-zinc-400">
               <Users className="w-3 h-3 text-orange-400" />
               <span>{activity.interestedCount} interested</span>
@@ -96,7 +96,7 @@ export function PlanCard({
                     e.stopPropagation();
                     onRemove();
                   }}
-                  className="p-1 rounded-md text-zinc-500 hover:text-rose-400 hover:bg-zinc-800 transition-colors"
+                  className="p-1 rounded-lg text-zinc-500 hover:text-rose-400 hover:bg-white/10 transition-colors apple-pressable"
                   title="Remove plan"
                 >
                   <Trash2 className="w-3.5 h-3.5" />

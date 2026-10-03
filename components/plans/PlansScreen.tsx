@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Calendar, Plus, Compass, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
+import { Calendar, Plus, Compass } from "lucide-react";
 import { Activity, Category } from "@/types";
 import { PlanCard } from "./PlanCard";
 import { ActivityDetailsModal } from "../explore/ActivityDetailsModal";
@@ -31,42 +31,42 @@ export function PlansScreen({
 
   return (
     <div className="flex-1 flex flex-col w-full h-full pb-24 px-4 pt-4 overflow-y-auto no-scrollbar">
-      {/* Screen Header */}
+      {/* Screen Header in Apple Optical Typography */}
       <div className="mb-4">
-        <h1 className="text-2xl font-black text-white tracking-tight">
+        <h1 className="text-2xl font-black apple-heading">
           My Plans
         </h1>
-        <p className="text-xs text-zinc-400 mt-0.5">
+        <p className="apple-subheadline text-xs mt-0.5">
           Activities you want to do and people to do them with
         </p>
       </div>
 
-      {/* Segmented Controls / Tabs */}
-      <div className="grid grid-cols-2 p-1 rounded-xl bg-zinc-900 border border-white/5 mb-5">
+      {/* iOS Style Segmented Control with spring feedback */}
+      <div className="apple-segmented-control mb-5">
         <button
           onClick={() => setTab("interested")}
-          className={`py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
+          className={`flex-1 py-2 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5 apple-pressable ${
             tab === "interested"
-              ? "bg-zinc-800 text-white shadow-sm"
+              ? "apple-segmented-item-active"
               : "text-zinc-400 hover:text-zinc-200"
           }`}
         >
           <span>Interested</span>
-          <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-zinc-700/80 text-zinc-300">
+          <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-white/10 text-zinc-300 font-bold">
             {interestedActivities.length}
           </span>
         </button>
 
         <button
           onClick={() => setTab("created")}
-          className={`py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
+          className={`flex-1 py-2 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5 apple-pressable ${
             tab === "created"
-              ? "bg-zinc-800 text-white shadow-sm"
+              ? "apple-segmented-item-active"
               : "text-zinc-400 hover:text-zinc-200"
           }`}
         >
           <span>Your Plans</span>
-          <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-zinc-700/80 text-zinc-300">
+          <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-white/10 text-zinc-300 font-bold">
             {createdActivities.length}
           </span>
         </button>
@@ -88,13 +88,14 @@ export function PlansScreen({
           ))}
         </div>
       ) : (
-        /* Empty State */
+        /* Empty State with Apple Card styling */
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="my-auto py-12 px-6 rounded-3xl bg-zinc-900/60 border border-white/5 text-center flex flex-col items-center"
+          transition={{ type: "spring", damping: 25, stiffness: 280 }}
+          className="my-auto py-12 px-6 apple-card text-center flex flex-col items-center"
         >
-          <div className="w-16 h-16 rounded-2xl bg-orange-500/10 text-orange-400 flex items-center justify-center mb-4">
+          <div className="w-16 h-16 rounded-2xl bg-orange-500/10 text-orange-400 flex items-center justify-center mb-4 border border-orange-500/20">
             {tab === "interested" ? (
               <Calendar className="w-8 h-8" />
             ) : (
@@ -102,10 +103,10 @@ export function PlansScreen({
             )}
           </div>
 
-          <h3 className="text-lg font-bold text-white mb-1">
+          <h3 className="apple-heading text-lg mb-1">
             Nothing here yet.
           </h3>
-          <p className="text-xs text-zinc-400 max-w-xs leading-relaxed mb-6">
+          <p className="apple-subheadline text-xs max-w-xs leading-relaxed mb-6">
             {tab === "interested"
               ? "Swipe right on something you'd actually do in the Explore feed."
               : "Don't wait for someone else to make a plan. Create one in 30 seconds."}
@@ -114,7 +115,7 @@ export function PlansScreen({
           {tab === "interested" ? (
             <button
               onClick={onExplore}
-              className="py-3 px-6 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-xs shadow-lg shadow-orange-500/20 active:scale-95 transition-all flex items-center gap-2"
+              className="apple-btn-primary py-3 px-6 text-xs shadow-lg"
             >
               <Compass className="w-4 h-4" />
               <span>Explore plans</span>
@@ -122,7 +123,7 @@ export function PlansScreen({
           ) : (
             <button
               onClick={onCreatePlan}
-              className="py-3 px-6 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-xs shadow-lg shadow-orange-500/20 active:scale-95 transition-all flex items-center gap-2"
+              className="apple-btn-primary py-3 px-6 text-xs shadow-lg"
             >
               <Plus className="w-4 h-4" />
               <span>Make a plan</span>

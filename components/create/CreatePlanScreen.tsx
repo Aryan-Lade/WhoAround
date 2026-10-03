@@ -97,7 +97,7 @@ export function CreatePlanScreen({
           interests: [category],
           city,
         },
-        SAMPLE_USERS[0], // Realistic interested peer
+        SAMPLE_USERS[0],
       ],
       interestedCount: 2,
       capacity,
@@ -127,30 +127,28 @@ export function CreatePlanScreen({
     <div className="flex-1 flex flex-col w-full h-full pb-28 px-4 pt-4 overflow-y-auto no-scrollbar">
       {/* Header */}
       <div className="mb-4">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-semibold mb-2">
-          <Sparkles className="w-3.5 h-3.5" />
+        <div className="apple-badge bg-orange-500/15 text-orange-300 border-orange-500/30 mb-2">
+          <Sparkles className="w-3.5 h-3.5 text-orange-400" />
           <span>Host a casual plan</span>
         </div>
-        <h1 className="text-3xl font-black text-white tracking-tight">
+        <h1 className="text-3xl apple-display-title">
           Make a plan.
         </h1>
-        <p className="text-xs text-zinc-400 mt-1">
+        <p className="apple-subheadline text-xs mt-1">
           Don&apos;t wait for someone else to make one.
         </p>
       </div>
 
       {/* Quick inspiration presets */}
       <div className="mb-5">
-        <p className="text-[11px] font-bold uppercase tracking-wider text-zinc-400 mb-2">
-          Quick Inspiration
-        </p>
+        <p className="apple-caption uppercase mb-2">Quick Inspiration</p>
         <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
           {presets.map((preset) => (
             <button
               key={preset.title}
               type="button"
               onClick={() => applyPreset(preset)}
-              className="text-xs text-left px-3 py-2 rounded-xl bg-zinc-900 border border-white/5 hover:border-orange-500/40 text-zinc-300 hover:text-white shrink-0 whitespace-nowrap transition-colors"
+              className="apple-btn-secondary text-xs py-2 px-3 shrink-0 whitespace-nowrap"
             >
               {preset.title}
             </button>
@@ -162,7 +160,7 @@ export function CreatePlanScreen({
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Title */}
         <div>
-          <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1.5">
+          <label className="block apple-caption uppercase mb-1.5">
             What are you doing? *
           </label>
           <input
@@ -171,13 +169,13 @@ export function CreatePlanScreen({
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="e.g. Badminton this Saturday"
-            className="w-full px-4 py-3.5 rounded-2xl bg-zinc-900 border border-white/10 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-orange-500 transition-colors"
+            className="apple-input"
           />
         </div>
 
         {/* Category Pill Selection */}
         <div>
-          <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1.5">
+          <label className="block apple-caption uppercase mb-1.5">
             Category *
           </label>
           <div className="grid grid-cols-3 gap-2">
@@ -188,10 +186,10 @@ export function CreatePlanScreen({
                   key={cat.id}
                   type="button"
                   onClick={() => setCategory(cat.id)}
-                  className={`py-2 px-2.5 rounded-xl border text-xs font-semibold flex items-center justify-center gap-1.5 transition-all truncate ${
+                  className={`py-2 px-2.5 rounded-xl border text-xs font-semibold flex items-center justify-center gap-1.5 transition-all truncate apple-pressable ${
                     isSelected
-                      ? "bg-orange-500/20 border-orange-500 text-orange-300 shadow-sm"
-                      : "bg-zinc-900 border-white/5 text-zinc-400 hover:text-zinc-200"
+                      ? "bg-orange-500/20 border-orange-500 text-orange-200 shadow-sm"
+                      : "bg-white/6 border-white/10 text-zinc-400 hover:text-zinc-200"
                   }`}
                 >
                   <span>{cat.emoji}</span>
@@ -205,7 +203,7 @@ export function CreatePlanScreen({
         {/* Date & Time */}
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1.5">
+            <label className="block apple-caption uppercase mb-1.5">
               Date
             </label>
             <div className="relative">
@@ -214,14 +212,14 @@ export function CreatePlanScreen({
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 placeholder="Saturday, Oct 11"
-                className="w-full pl-9 pr-3 py-3 rounded-xl bg-zinc-900 border border-white/10 text-white text-xs focus:outline-none focus:border-orange-500"
+                className="apple-input pl-9 text-xs"
               />
               <Calendar className="w-4 h-4 text-orange-400 absolute left-3 top-3.5" />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1.5">
+            <label className="block apple-caption uppercase mb-1.5">
               Time
             </label>
             <input
@@ -229,14 +227,14 @@ export function CreatePlanScreen({
               value={time}
               onChange={(e) => setTime(e.target.value)}
               placeholder="6:00 PM"
-              className="w-full px-3 py-3 rounded-xl bg-zinc-900 border border-white/10 text-white text-xs focus:outline-none focus:border-orange-500"
+              className="apple-input text-xs"
             />
           </div>
         </div>
 
         {/* Public Venue Location */}
         <div>
-          <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1.5">
+          <label className="block apple-caption uppercase mb-1.5">
             Public Venue & City *
           </label>
           <div className="relative">
@@ -246,21 +244,21 @@ export function CreatePlanScreen({
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               placeholder="e.g. Nagpur Sports Club / Loft Coworking"
-              className="w-full pl-9 pr-3 py-3.5 rounded-2xl bg-zinc-900 border border-white/10 text-white text-sm focus:outline-none focus:border-orange-500"
+              className="apple-input pl-9"
             />
             <MapPin className="w-4 h-4 text-orange-400 absolute left-3 top-4" />
           </div>
-          <p className="text-[11px] text-zinc-500 mt-1">
+          <p className="apple-caption text-[11px] mt-1">
             City: {city} · Public meeting locations only
           </p>
         </div>
 
-        {/* Capacity Stepper */}
+        {/* Capacity Stepper with Apple Press Response */}
         <div>
-          <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1.5">
+          <label className="block apple-caption uppercase mb-1.5">
             How many people? (1–10)
           </label>
-          <div className="flex items-center justify-between p-3 rounded-2xl bg-zinc-900 border border-white/10">
+          <div className="flex items-center justify-between p-3.5 rounded-2xl bg-white/6 border border-white/10">
             <div className="flex items-center gap-2 text-xs text-zinc-300">
               <Users className="w-4 h-4 text-orange-400" />
               <span>Looking for group of:</span>
@@ -270,7 +268,7 @@ export function CreatePlanScreen({
               <button
                 type="button"
                 onClick={() => setCapacity(Math.max(1, capacity - 1))}
-                className="w-8 h-8 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-xl bg-white/10 hover:bg-white/15 text-white flex items-center justify-center transition-colors apple-pressable"
               >
                 <Minus className="w-4 h-4" />
               </button>
@@ -280,7 +278,7 @@ export function CreatePlanScreen({
               <button
                 type="button"
                 onClick={() => setCapacity(Math.min(10, capacity + 1))}
-                className="w-8 h-8 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-xl bg-white/10 hover:bg-white/15 text-white flex items-center justify-center transition-colors apple-pressable"
               >
                 <Plus className="w-4 h-4" />
               </button>
@@ -290,7 +288,7 @@ export function CreatePlanScreen({
 
         {/* Description */}
         <div>
-          <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1.5">
+          <label className="block apple-caption uppercase mb-1.5">
             Description
           </label>
           <textarea
@@ -298,13 +296,13 @@ export function CreatePlanScreen({
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Need 2 more people for a casual game."
-            className="w-full px-4 py-3 rounded-2xl bg-zinc-900 border border-white/10 text-white placeholder-zinc-500 text-xs focus:outline-none focus:border-orange-500 resize-none"
+            className="apple-input resize-none"
           />
         </div>
 
         {/* Cost estimate */}
         <div>
-          <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1.5">
+          <label className="block apple-caption uppercase mb-1.5">
             Estimated Cost / Split
           </label>
           <input
@@ -312,7 +310,7 @@ export function CreatePlanScreen({
             value={cost}
             onChange={(e) => setCost(e.target.value)}
             placeholder="e.g. Free, Split court fee, Buy own beverage"
-            className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-white/10 text-white text-xs focus:outline-none focus:border-orange-500"
+            className="apple-input text-xs"
           />
         </div>
 
@@ -321,7 +319,7 @@ export function CreatePlanScreen({
           <button
             type="submit"
             disabled={isSubmitting || !title.trim()}
-            className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-base shadow-xl shadow-orange-500/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+            className="apple-btn-primary w-full py-4 text-base shadow-xl disabled:opacity-50"
           >
             <Plus className="w-5 h-5 stroke-[2.5]" />
             <span>Post this plan</span>
