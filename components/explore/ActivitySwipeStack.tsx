@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   motion,
   useMotionValue,
@@ -108,10 +108,36 @@ export function ActivitySwipeStack({
     }, 220);
   };
 
+  // Keyboard controls for desktop navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't trigger if user is in an input or textarea
+      if (["INPUT", "TEXTAREA"].includes((e.target as HTMLElement)?.tagName)) return;
+      if (exitDirection !== null) return;
+
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        triggerSkip();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        triggerInterested();
+      } else if (e.key === " " && currentItem) {
+        e.preventDefault();
+        onOpenDetails(currentItem.activity);
+      } else if ((e.key === "u" || e.key === "U") && canUndo) {
+        e.preventDefault();
+        onUndo();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentItem, canUndo, exitDirection]);
+
   // Empty state when stack is exhausted
   if (!currentItem) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
+      <div className="flex-1 flex flex-col items-center justify-center p-6 text-center w-full max-w-[440px] mx-auto">
         <motion.div
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -152,7 +178,7 @@ export function ActivitySwipeStack({
   }
 
   return (
-    <div className="flex-1 flex flex-col justify-between px-4 pb-2 relative">
+    <div className="flex-1 flex flex-col justify-between px-4 pb-2 relative w-full max-w-[440px] mx-auto">
       {/* Cards container with Apple depth & materials */}
       <div className="relative w-full h-[clamp(370px,52vh,440px)] flex items-center justify-center">
         {/* Next Card underneath: calibrated Apple continuous depth */}
@@ -216,14 +242,34 @@ export function ActivitySwipeStack({
       </div>
 
       {/* Accessible Action Buttons Below Card */}
-      <SwipeControls
-        onSkip={triggerSkip}
-        onInterested={triggerInterested}
-        onOpenDetails={() => onOpenDetails(currentItem.activity)}
-        onUndo={onUndo}
-        canUndo={canUndo}
-        disabled={exitDirection !== null}
-      />
+      <div className="w-full flex flex-col items-center">
+        <SwipeControls
+          onSkip={triggerSkip}
+          onInterested={triggerInterested}
+          onOpenDetails={() => onOpenDetails(currentItem.activity)}
+          onUndo={onUndo}
+          canUndo={canUndo}
+          disabled={exitDirection !== null}
+        />
+
+        {/* Desktop Keyboard Hints */}
+        <div className="hidden md:flex items-center justify-center gap-3 text-[11px] text-zinc-400 font-mono select-none mt-1">
+          <span className="flex items-center gap-1">
+            <kbd className="px-1.5 py-0.5 rounded bg-black/5 border border-black/8 text-zinc-600 text-[10px]">←</kbd> Skip
+          </span>
+          <span className="flex items-center gap-1">
+            <kbd className="px-1.5 py-0.5 rounded bg-black/5 border border-black/8 text-zinc-600 text-[10px]">Space</kbd> Details
+          </span>
+          <span className="flex items-center gap-1">
+            <kbd className="px-1.5 py-0.5 rounded bg-black/5 border border-black/8 text-zinc-600 text-[10px]">→</kbd> Interested
+          </span>
+          {canUndo && (
+            <span className="flex items-center gap-1">
+              <kbd className="px-1.5 py-0.5 rounded bg-black/5 border border-black/8 text-zinc-600 text-[10px]">U</kbd> Undo
+            </span>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

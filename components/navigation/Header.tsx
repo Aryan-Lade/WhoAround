@@ -16,12 +16,17 @@ export function Header({ currentCity, onCityChange, onOpenAbout }: HeaderProps) 
 
   return (
     <>
-      <header className="sticky top-0 z-30 w-full apple-glass px-4 py-3 flex items-center justify-between">
+      <header className="sticky top-0 z-30 w-full apple-glass px-4 md:px-8 py-3 flex items-center justify-between">
         {/* Brand with Apple Optical Tracking */}
-        <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse glow-accent" />
-          <span className="font-black text-sm tracking-[-0.03em] text-zinc-900 uppercase flex items-center">
-            WHO AROUND
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <div className="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse glow-accent" />
+            <span className="font-black text-sm tracking-[-0.03em] text-zinc-900 uppercase flex items-center">
+              WHO AROUND
+            </span>
+          </div>
+          <span className="hidden md:inline-block text-xs text-zinc-400 font-medium pl-3 border-l border-black/10">
+            Find your people. Find your plans.
           </span>
         </div>
 

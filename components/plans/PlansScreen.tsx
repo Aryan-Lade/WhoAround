@@ -30,63 +30,65 @@ export function PlansScreen({
   const displayedList = tab === "interested" ? interestedActivities : createdActivities;
 
   return (
-    <div className="flex-1 flex flex-col w-full h-full pb-24 px-4 pt-4 overflow-y-auto no-scrollbar">
+    <div className="flex-1 flex flex-col w-full h-full pb-28 px-4 md:px-8 pt-4 md:pt-6 max-w-6xl mx-auto overflow-y-auto no-scrollbar">
       {/* Screen Header in Apple Optical Typography */}
-      <div className="mb-4">
-        <h1 className="text-2xl font-black apple-heading">
-          My Plans
-        </h1>
-        <p className="apple-subheadline text-xs mt-0.5">
-          Activities you want to do and people to do them with
-        </p>
-      </div>
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <div>
+          <h1 className="text-2xl md:text-3xl font-black apple-heading">
+            My Plans
+          </h1>
+          <p className="apple-subheadline text-xs md:text-sm mt-0.5">
+            Activities you want to do and people to do them with
+          </p>
+        </div>
 
-      {/* iOS Style Segmented Control with spring feedback */}
-      <div className="apple-segmented-control mb-5">
-        <button
-          onClick={() => setTab("interested")}
-          className={`flex-1 py-2 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5 apple-pressable ${
-            tab === "interested"
-              ? "apple-segmented-item-active"
-              : "text-zinc-500 hover:text-zinc-900"
-          }`}
-        >
-          <span>Interested</span>
-          <span
-            className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
+        {/* iOS Style Segmented Control with spring feedback */}
+        <div className="apple-segmented-control w-full md:w-72">
+          <button
+            onClick={() => setTab("interested")}
+            className={`flex-1 py-2 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5 apple-pressable ${
               tab === "interested"
-                ? "bg-orange-500/10 text-orange-600"
-                : "bg-black/5 text-zinc-600"
+                ? "apple-segmented-item-active"
+                : "text-zinc-500 hover:text-zinc-900"
             }`}
           >
-            {interestedActivities.length}
-          </span>
-        </button>
+            <span>Interested</span>
+            <span
+              className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
+                tab === "interested"
+                  ? "bg-orange-500/10 text-orange-600"
+                  : "bg-black/5 text-zinc-600"
+              }`}
+            >
+              {interestedActivities.length}
+            </span>
+          </button>
 
-        <button
-          onClick={() => setTab("created")}
-          className={`flex-1 py-2 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5 apple-pressable ${
-            tab === "created"
-              ? "apple-segmented-item-active"
-              : "text-zinc-500 hover:text-zinc-900"
-          }`}
-        >
-          <span>Your Plans</span>
-          <span
-            className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
+          <button
+            onClick={() => setTab("created")}
+            className={`flex-1 py-2 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5 apple-pressable ${
               tab === "created"
-                ? "bg-orange-500/10 text-orange-600"
-                : "bg-black/5 text-zinc-600"
+                ? "apple-segmented-item-active"
+                : "text-zinc-500 hover:text-zinc-900"
             }`}
           >
-            {createdActivities.length}
-          </span>
-        </button>
+            <span>Your Plans</span>
+            <span
+              className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
+                tab === "created"
+                  ? "bg-orange-500/10 text-orange-600"
+                  : "bg-black/5 text-zinc-600"
+              }`}
+            >
+              {createdActivities.length}
+            </span>
+          </button>
+        </div>
       </div>
 
       {/* Content List or Empty State */}
       {displayedList.length > 0 ? (
-        <div className="space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {displayedList.map((act) => (
             <PlanCard
               key={act.id}

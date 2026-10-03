@@ -12,8 +12,8 @@ interface BottomNavProps {
 
 export function BottomNav({ activeTab, onChangeTab, plansCount = 0 }: BottomNavProps) {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 max-w-[480px] mx-auto pointer-events-none p-3.5 pb-6">
-      <div className="pointer-events-auto apple-nav-dock rounded-[28px] px-3.5 py-2 flex items-center justify-around shadow-xl">
+    <nav className="fixed bottom-0 left-0 right-0 z-40 w-full max-w-md md:max-w-lg mx-auto pointer-events-none p-3.5 pb-6">
+      <div className="pointer-events-auto apple-nav-dock rounded-[28px] px-3.5 md:px-5 py-2 flex items-center justify-around shadow-xl">
         {/* Explore */}
         <button
           onClick={() => onChangeTab("explore")}

@@ -87,7 +87,7 @@ export function ActivityDetailsModal({
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
           transition={{ type: "spring", damping: 28, stiffness: 300 }}
-          className="relative w-full max-w-[480px] apple-sheet rounded-t-[36px] sm:rounded-[36px] z-10 max-h-[92vh] flex flex-col overflow-hidden"
+          className="relative w-full max-w-[480px] sm:max-w-xl md:max-w-2xl apple-sheet rounded-t-[36px] sm:rounded-[36px] z-10 max-h-[92vh] flex flex-col overflow-hidden"
         >
           {/* iOS Grab Handle */}
           <div className="apple-grab-handle" />

@@ -134,8 +134,10 @@ export default function Home() {
   // If user hasn't completed onboarding, render the onboarding experience
   if (!onboarding.completed) {
     return (
-      <main className="app-container">
-        <OnboardingFlow onComplete={handleOnboardingComplete} />
+      <main className="min-h-dvh w-full flex items-center justify-center p-0 md:p-6 bg-[#f2f2f7]">
+        <div className="w-full max-w-md md:max-w-xl md:rounded-[36px] md:shadow-2xl md:border md:border-black/8 overflow-hidden bg-[#fbfbfd]">
+          <OnboardingFlow onComplete={handleOnboardingComplete} />
+        </div>
       </main>
     );
   }

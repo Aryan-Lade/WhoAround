@@ -20,7 +20,7 @@ export function CategoryFilter({
   ];
 
   return (
-    <div className="w-full overflow-x-auto no-scrollbar py-2.5 px-4 flex items-center gap-2">
+    <div className="w-full overflow-x-auto no-scrollbar py-2.5 px-4 md:px-8 flex items-center gap-2 md:justify-center">
       {filterOptions.map((item) => {
         const isSelected = selectedCategory === item.id;
         return (

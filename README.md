@@ -60,6 +60,19 @@ The problem is:
 
 ---
 
+### 4. Desktop Responsive Experience (Dual-Column & Multi-Grid Layouts)
+| Desktop Explore (Swipe Deck + Live Companion) | Desktop Plans (Responsive 3-Column Grid) |
+| :---: | :---: |
+| <img src="./public/screenshots/desktop-explore.png" width="450" alt="Desktop Explore Screen" /> | <img src="./public/screenshots/desktop-plans.png" width="450" alt="Desktop Plans Grid" /> |
+| Desktop 2-column layout with Live Companion Panel & Keyboard navigation (`←`, `Space`, `→`, `U`) | Responsive 3-column card grid with aligned segmented control |
+
+| Desktop Compose (Live Card Preview) | Desktop Profile (macOS Settings Style) |
+| :---: | :---: |
+| <img src="./public/screenshots/desktop-create.png" width="450" alt="Desktop Compose Screen" /> | <img src="./public/screenshots/desktop-profile.png" width="450" alt="Desktop Profile Screen" /> |
+| Real-time live ActivityCard preview as you type title, date, venue | 2-column grouped layout with stats and settings |
+
+---
+
 ## ⚡ Apple Design System & Fluid Motion
 
 The UI is built according to **Apple Design Principles** (WWDC *Designing Fluid Interfaces*):

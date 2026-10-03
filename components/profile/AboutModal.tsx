@@ -29,7 +29,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: "100%", opacity: 0 }}
           transition={{ type: "spring", damping: 28, stiffness: 300 }}
-          className="relative w-full max-w-[480px] apple-sheet rounded-t-[36px] sm:rounded-[36px] p-6 pt-3 shadow-2xl z-10 max-h-[85vh] flex flex-col"
+          className="relative w-full max-w-[480px] sm:max-w-xl apple-sheet rounded-t-[36px] sm:rounded-[36px] p-6 pt-3 shadow-2xl z-10 max-h-[85vh] flex flex-col"
         >
           {/* iOS Grab Handle */}
           <div className="apple-grab-handle" />
