@@ -30,25 +30,25 @@ export function TransitionScreen({ city, interests, onComplete }: TransitionScre
   }, [onComplete]);
 
   return (
-    <div className="relative min-h-dvh flex flex-col items-center justify-center p-6 bg-zinc-950 text-center overflow-hidden">
+    <div className="relative min-h-dvh flex flex-col items-center justify-center p-6 bg-gradient-to-b from-[#fbfbfd] via-[#f5f5f7] to-[#ebebf0] text-center overflow-hidden">
       {/* Background pulsing rings */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <motion.div
           animate={{
             scale: [1, 1.8, 2.4],
-            opacity: [0.6, 0.2, 0],
+            opacity: [0.5, 0.15, 0],
           }}
           transition={{
             duration: 2.2,
             repeat: Infinity,
             ease: "easeOut",
           }}
-          className="w-48 h-48 rounded-full border border-orange-500/40"
+          className="w-48 h-48 rounded-full border border-orange-500/30"
         />
         <motion.div
           animate={{
             scale: [1, 1.5, 2.0],
-            opacity: [0.5, 0.15, 0],
+            opacity: [0.4, 0.1, 0],
           }}
           transition={{
             duration: 2.2,
@@ -56,7 +56,7 @@ export function TransitionScreen({ city, interests, onComplete }: TransitionScre
             ease: "easeOut",
             delay: 0.7,
           }}
-          className="w-48 h-48 rounded-full border border-amber-500/30"
+          className="w-48 h-48 rounded-full border border-amber-500/25"
         />
       </div>
 
@@ -64,16 +64,16 @@ export function TransitionScreen({ city, interests, onComplete }: TransitionScre
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="relative z-10 w-24 h-24 rounded-3xl bg-gradient-to-tr from-orange-600 to-amber-500 p-0.5 shadow-[0_0_50px_-10px_rgba(249,115,22,0.5)] mb-8 flex items-center justify-center"
+        transition={{ type: "spring", damping: 25, stiffness: 300 }}
+        className="relative z-10 w-24 h-24 rounded-3xl bg-gradient-to-tr from-orange-500 to-amber-500 p-0.5 shadow-[0_0_40px_-8px_rgba(249,115,22,0.45)] mb-8 flex items-center justify-center"
       >
-        <div className="w-full h-full bg-zinc-950 rounded-[22px] flex items-center justify-center relative overflow-hidden">
+        <div className="w-full h-full bg-white rounded-[22px] flex items-center justify-center relative overflow-hidden shadow-inner">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
             className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-500/20 via-transparent to-transparent"
           />
-          <Users className="w-10 h-10 text-orange-400 relative z-10" />
+          <Users className="w-10 h-10 text-orange-500 relative z-10" />
         </div>
       </motion.div>
 
@@ -86,14 +86,14 @@ export function TransitionScreen({ city, interests, onComplete }: TransitionScre
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.25 }}
               className="space-y-2"
             >
-              <h3 className="text-2xl font-black text-white tracking-tight">
+              <h3 className="text-2xl apple-heading">
                 Finding your kind of people...
               </h3>
-              <p className="text-sm text-zinc-400 flex items-center justify-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-orange-400" />
+              <p className="apple-subheadline text-xs flex items-center justify-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-orange-500" />
                 Scanning activities around {city}
               </p>
             </motion.div>
@@ -103,14 +103,14 @@ export function TransitionScreen({ city, interests, onComplete }: TransitionScre
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.25 }}
               className="space-y-2"
             >
-              <h3 className="text-2xl font-black text-white tracking-tight flex items-center justify-center gap-2">
+              <h3 className="text-2xl apple-heading flex items-center justify-center gap-2">
                 <span>Here&apos;s what&apos;s around you</span>
-                <Sparkles className="w-5 h-5 text-amber-400" />
+                <Sparkles className="w-5 h-5 text-amber-500" />
               </h3>
-              <p className="text-sm text-orange-400 font-medium">
+              <p className="text-sm text-orange-600 font-semibold">
                 Personalized for your interests
               </p>
             </motion.div>
@@ -128,7 +128,7 @@ export function TransitionScreen({ city, interests, onComplete }: TransitionScre
         {interests.slice(0, 4).map((interest) => (
           <span
             key={interest}
-            className="text-[11px] px-2.5 py-1 rounded-full bg-zinc-900 border border-white/10 text-zinc-300"
+            className="apple-badge bg-white text-zinc-800 border-black/8 shadow-sm text-[11px]"
           >
             {interest}
           </span>

@@ -25,7 +25,7 @@ export function ActivityCard({
   return (
     <div
       onClick={onOpenDetails}
-      className="relative w-full h-[510px] sm:h-[530px] rounded-[32px] overflow-hidden cursor-pointer select-none bg-zinc-950 border border-white/12 border-t-white/25 shadow-2xl flex flex-col justify-between group will-change-transform"
+      className="relative w-full h-full rounded-[32px] overflow-hidden cursor-pointer select-none bg-zinc-950 border border-white/12 border-t-white/25 shadow-2xl flex flex-col justify-between group will-change-transform"
     >
       {/* Background Image / Fallback Gradient */}
       <div className="absolute inset-0 z-0">
@@ -86,8 +86,8 @@ export function ActivityCard({
 
       {/* Bottom Information Container */}
       <div className="relative z-10 p-5 pt-0 space-y-3">
-        {/* Title in Apple Display Typography */}
-        <h2 className="text-2xl sm:text-3xl apple-display-title drop-shadow-md">
+        {/* Title in Apple Display Typography with high contrast over photo */}
+        <h2 className="text-2xl sm:text-3xl font-black text-white leading-[1.06] tracking-tight drop-shadow-md">
           {activity.title}
         </h2>
 
@@ -109,7 +109,7 @@ export function ActivityCard({
         </div>
 
         {/* Short Description */}
-        <p className="apple-subheadline text-xs sm:text-sm text-zinc-300 line-clamp-2 leading-relaxed">
+        <p className="text-xs sm:text-sm text-zinc-200 line-clamp-2 leading-relaxed font-normal">
           &ldquo;{activity.description}&rdquo;
         </p>
 

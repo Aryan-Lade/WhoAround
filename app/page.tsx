@@ -125,7 +125,7 @@ export default function Home() {
   // Prevent SSR hydration mismatch
   if (!mounted) {
     return (
-      <div className="min-h-dvh w-full flex items-center justify-center bg-[#050507]">
+      <div className="min-h-dvh w-full flex items-center justify-center bg-[#f2f2f7]">
         <div className="w-8 h-8 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" />
       </div>
     );

@@ -57,7 +57,7 @@ export function ExploreScreen({
   return (
     <div className="flex-1 flex flex-col justify-between w-full h-full pb-20">
       {/* Category Filter Scroll */}
-      <div className="pt-2 border-b border-white/5 bg-zinc-950/40">
+      <div className="pt-2 border-b border-black/[0.06] bg-white/70 backdrop-blur-md">
         <CategoryFilter
           selectedCategory={selectedCategory}
           onSelectCategory={setSelectedCategory}

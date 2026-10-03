@@ -29,8 +29,8 @@ export function CategoryFilter({
             onClick={() => onSelectCategory(item.id)}
             className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 shrink-0 apple-pressable ${
               isSelected
-                ? "bg-gradient-to-b from-orange-400 to-orange-600 text-white shadow-md shadow-orange-500/25 border-t border-white/30"
-                : "bg-white/8 hover:bg-white/12 text-zinc-300 hover:text-white border border-white/10"
+                ? "bg-gradient-to-b from-orange-500 to-orange-600 text-white shadow-md shadow-orange-500/25"
+                : "bg-black/5 hover:bg-black/8 text-zinc-700 hover:text-zinc-950 border border-black/6"
             }`}
           >
             {item.emoji && <span className="text-xs">{item.emoji}</span>}

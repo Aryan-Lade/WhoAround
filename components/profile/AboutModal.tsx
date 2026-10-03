@@ -21,7 +21,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/75 backdrop-blur-md"
+          className="fixed inset-0 bg-black/40 backdrop-blur-md"
         />
 
         <motion.div
@@ -34,7 +34,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
           {/* iOS Grab Handle */}
           <div className="apple-grab-handle" />
 
-          <div className="flex items-center justify-between pb-3.5 border-b border-white/10">
+          <div className="flex items-center justify-between pb-3.5 border-b border-black/8">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-orange-500 glow-accent" />
               <h3 className="apple-heading text-base uppercase">
@@ -43,24 +43,24 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
             </div>
             <button
               onClick={onClose}
-              className="p-1.5 text-zinc-400 hover:text-white rounded-full bg-white/10 apple-pressable transition-colors"
+              className="p-1.5 text-zinc-500 hover:text-zinc-900 rounded-full bg-black/5 hover:bg-black/10 apple-pressable transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
-          <div className="overflow-y-auto no-scrollbar py-4 space-y-4 text-xs text-zinc-300 leading-relaxed">
-            <div className="p-4 rounded-2xl bg-orange-500/12 border border-orange-500/25">
-              <p className="font-black text-white text-sm tracking-tight">
+          <div className="overflow-y-auto no-scrollbar py-4 space-y-4 text-xs text-zinc-700 leading-relaxed">
+            <div className="p-4 rounded-2xl bg-orange-50 border border-orange-200/80">
+              <p className="font-black text-orange-950 text-sm tracking-tight">
                 &ldquo;Find your people. Find your plans.&rdquo;
               </p>
-              <p className="apple-subheadline text-xs mt-1 text-zinc-300">
+              <p className="apple-subheadline text-xs mt-1 text-zinc-600">
                 A mobile-first social activity discovery web app for people who want to do things but don&apos;t have someone to do them with.
               </p>
             </div>
 
             <div>
-              <h4 className="apple-caption uppercase font-bold text-white mb-1.5">
+              <h4 className="apple-caption uppercase font-bold text-zinc-900 mb-1.5">
                 The Core Problem
               </h4>
               <p className="apple-subheadline text-xs">
@@ -69,16 +69,16 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
             </div>
 
             <div>
-              <h4 className="apple-caption uppercase font-bold text-white mb-1.5">
+              <h4 className="apple-caption uppercase font-bold text-zinc-900 mb-1.5">
                 Not a Dating App
               </h4>
               <p className="apple-subheadline text-xs">
-                You swipe on <span className="text-white font-semibold">ACTIVITIES</span>, not people. The hierarchy is Activity → People Interested → Mutual Connection.
+                You swipe on <span className="text-zinc-900 font-semibold">ACTIVITIES</span>, not people. The hierarchy is Activity → People Interested → Mutual Connection.
               </p>
             </div>
 
             <div>
-              <h4 className="apple-caption uppercase font-bold text-white mb-1.5">
+              <h4 className="apple-caption uppercase font-bold text-zinc-900 mb-1.5">
                 Frictionless Guest Demo
               </h4>
               <p className="apple-subheadline text-xs">
@@ -87,7 +87,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps) {
             </div>
           </div>
 
-          <div className="pt-3 border-t border-white/10">
+          <div className="pt-3 border-t border-black/8">
             <button
               onClick={onClose}
               className="apple-btn-primary w-full text-xs shadow-lg"

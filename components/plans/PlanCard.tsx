@@ -24,11 +24,11 @@ export function PlanCard({
   return (
     <div
       onClick={onOpenDetails}
-      className="p-4 rounded-[26px] bg-white/6 hover:bg-white/9 border border-white/10 hover:border-white/20 transition-all cursor-pointer relative overflow-hidden group shadow-lg apple-pressable backdrop-blur-xl"
+      className="p-4 rounded-[26px] bg-white/95 hover:bg-white border border-black/8 hover:border-black/16 transition-all cursor-pointer relative overflow-hidden group shadow-sm hover:shadow-md apple-pressable"
     >
       <div className="flex items-start gap-3.5">
         {/* Thumbnail Image */}
-        <div className="relative w-20 h-24 rounded-2xl overflow-hidden shrink-0 bg-zinc-800 border border-white/10">
+        <div className="relative w-20 h-24 rounded-2xl overflow-hidden shrink-0 bg-zinc-100 border border-black/6">
           <Image
             src={activity.image}
             alt={activity.title}
@@ -52,40 +52,40 @@ export function PlanCard({
         {/* Content */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between gap-1 mb-1">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-orange-400">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-orange-600">
               {activity.category}
             </span>
             {isUserCreated ? (
-              <span className="apple-badge bg-orange-500/20 text-orange-300 border-orange-500/30 text-[9px] py-0.5 px-2">
+              <span className="apple-badge bg-orange-500/15 text-orange-700 border-orange-500/25 text-[9px] py-0.5 px-2 font-bold">
                 Created by you
               </span>
             ) : (
-              <span className="apple-caption text-[10px] text-zinc-400 font-medium">
+              <span className="apple-caption text-[10px] text-zinc-500 font-medium">
                 {activity.distance}
               </span>
             )}
           </div>
 
-          <h3 className="font-bold text-sm text-white truncate leading-tight tracking-tight group-hover:text-orange-400 transition-colors">
+          <h3 className="font-bold text-sm text-zinc-900 truncate leading-tight tracking-tight group-hover:text-orange-600 transition-colors">
             {activity.title}
           </h3>
 
-          <div className="flex items-center gap-1.5 text-xs text-zinc-300 mt-1">
-            <Calendar className="w-3.5 h-3.5 text-orange-400 shrink-0" />
+          <div className="flex items-center gap-1.5 text-xs text-zinc-600 mt-1">
+            <Calendar className="w-3.5 h-3.5 text-orange-500 shrink-0" />
             <span className="truncate font-medium">{activity.date}</span>
-            <span className="text-zinc-500">·</span>
+            <span className="text-zinc-400">·</span>
             <span>{activity.time.split(" - ")[0]}</span>
           </div>
 
-          <div className="flex items-center gap-1.5 text-xs text-zinc-400 mt-1">
-            <MapPin className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
+          <div className="flex items-center gap-1.5 text-xs text-zinc-500 mt-1">
+            <MapPin className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
             <span className="truncate">{activity.location.split(",")[0]}</span>
           </div>
 
           {/* Social status footer */}
-          <div className="flex items-center justify-between mt-2.5 pt-2 border-t border-white/8">
-            <div className="flex items-center gap-1.5 text-[11px] text-zinc-400">
-              <Users className="w-3 h-3 text-orange-400" />
+          <div className="flex items-center justify-between mt-2.5 pt-2 border-t border-black/6">
+            <div className="flex items-center gap-1.5 text-[11px] text-zinc-600">
+              <Users className="w-3 h-3 text-orange-500" />
               <span>{activity.interestedCount} interested</span>
             </div>
 
@@ -96,13 +96,13 @@ export function PlanCard({
                     e.stopPropagation();
                     onRemove();
                   }}
-                  className="p-1 rounded-lg text-zinc-500 hover:text-rose-400 hover:bg-white/10 transition-colors apple-pressable"
+                  className="p-1 rounded-lg text-zinc-400 hover:text-rose-500 hover:bg-rose-50 transition-colors apple-pressable"
                   title="Remove plan"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
                 </button>
               )}
-              <div className="flex items-center text-xs font-semibold text-orange-400 group-hover:translate-x-0.5 transition-transform">
+              <div className="flex items-center text-xs font-semibold text-orange-600 group-hover:translate-x-0.5 transition-transform">
                 <span>View</span>
                 <ChevronRight className="w-3.5 h-3.5" />
               </div>

@@ -30,7 +30,7 @@ export function CitySwitcherModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/75 backdrop-blur-md"
+          className="fixed inset-0 bg-black/40 backdrop-blur-md"
         />
 
         {/* Sheet / Modal */}
@@ -45,10 +45,10 @@ export function CitySwitcherModal({
           <div className="apple-grab-handle" />
 
           {/* Header */}
-          <div className="flex items-center justify-between pb-3 border-b border-white/10">
+          <div className="flex items-center justify-between pb-3 border-b border-black/8">
             <div>
               <h3 className="apple-heading text-lg flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-orange-400" />
+                <MapPin className="w-5 h-5 text-orange-500" />
                 Change City
               </h3>
               <p className="apple-subheadline text-xs mt-0.5">
@@ -57,7 +57,7 @@ export function CitySwitcherModal({
             </div>
             <button
               onClick={onClose}
-              className="p-1.5 text-zinc-400 hover:text-white rounded-full bg-white/10 apple-pressable transition-colors"
+              className="p-1.5 text-zinc-500 hover:text-zinc-900 rounded-full bg-black/5 hover:bg-black/10 apple-pressable transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
@@ -76,16 +76,16 @@ export function CitySwitcherModal({
                   }}
                   className={`w-full text-left p-3.5 rounded-2xl border transition-all flex items-center justify-between apple-pressable group ${
                     isSelected
-                      ? "bg-orange-500/15 border-orange-500/60 shadow-[0_0_20px_-4px_rgba(249,115,22,0.25)]"
-                      : "bg-white/5 border-white/8 hover:border-white/18 hover:bg-white/8"
+                      ? "bg-orange-50/90 border-orange-500 text-orange-950 shadow-xs"
+                      : "bg-black/[0.02] border-black/8 hover:border-black/15 hover:bg-black/[0.04]"
                   }`}
                 >
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-white text-base tracking-tight">
+                      <span className="font-bold text-zinc-900 text-base tracking-tight">
                         {city.name}
                       </span>
-                      <span className="text-[11px] px-2 py-0.5 rounded-full bg-white/10 text-zinc-300 font-medium">
+                      <span className="text-[11px] px-2 py-0.5 rounded-full bg-black/5 text-zinc-600 font-medium">
                         {city.state}
                       </span>
                     </div>
@@ -94,7 +94,7 @@ export function CitySwitcherModal({
                       {city.popularCategories.map((cat) => (
                         <span
                           key={cat}
-                          className="apple-caption text-[10px] px-2 py-0.5 rounded-md bg-white/6 border border-white/8 text-zinc-300"
+                          className="apple-caption text-[10px] px-2 py-0.5 rounded-md bg-black/[0.03] border border-black/6 text-zinc-600"
                         >
                           {cat}
                         </span>

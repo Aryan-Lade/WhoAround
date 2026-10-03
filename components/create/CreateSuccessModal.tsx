@@ -25,7 +25,7 @@ export function CreateSuccessModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/80 backdrop-blur-md"
+          className="fixed inset-0 bg-black/40 backdrop-blur-md"
         />
 
         <motion.div
@@ -33,16 +33,16 @@ export function CreateSuccessModal({
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.94, opacity: 0 }}
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
-          className="relative w-full max-w-sm apple-glass-heavy border border-white/15 rounded-[32px] p-6 shadow-2xl z-10 text-center flex flex-col items-center"
+          className="relative w-full max-w-sm apple-glass-heavy border border-black/10 rounded-[32px] p-6 shadow-2xl z-10 text-center flex flex-col items-center"
         >
           {/* Animated checkmark icon with Apple halo */}
-          <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 p-0.5 mb-4 shadow-[0_0_35px_-5px_rgba(249,115,22,0.45)]">
-            <div className="w-full h-full rounded-full bg-zinc-950 flex items-center justify-center text-orange-400">
-              <CheckCircle2 className="w-9 h-9 text-orange-400 stroke-[2.2]" />
+          <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 p-0.5 mb-4 shadow-[0_0_35px_-5px_rgba(249,115,22,0.35)]">
+            <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-orange-500">
+              <CheckCircle2 className="w-9 h-9 text-orange-500 stroke-[2.2]" />
             </div>
           </div>
 
-          <span className="apple-badge bg-orange-500/15 text-orange-300 border-orange-500/30 mb-1.5">
+          <span className="apple-badge bg-orange-500/10 text-orange-600 border-orange-500/20 mb-1.5">
             <Sparkles className="w-3.5 h-3.5" />
             Activity Posted
           </span>
@@ -51,12 +51,12 @@ export function CreateSuccessModal({
             Your plan is live.
           </h3>
 
-          <p className="apple-subheadline text-xs leading-relaxed max-w-xs mb-6 bg-white/5 p-3.5 rounded-2xl border border-white/8 italic">
+          <p className="apple-subheadline text-xs leading-relaxed max-w-xs mb-6 bg-black/[0.03] p-3.5 rounded-2xl border border-black/6 italic">
             &ldquo;You might not know them yet. But they might want to play too.&rdquo;
           </p>
 
-          <div className="w-full p-3.5 rounded-2xl bg-white/6 border border-white/10 text-left mb-6">
-            <p className="text-xs font-bold text-white truncate">
+          <div className="w-full p-3.5 rounded-2xl bg-black/[0.03] border border-black/8 text-left mb-6">
+            <p className="text-xs font-bold text-zinc-900 truncate">
               {activity.title}
             </p>
             <p className="apple-caption text-[11px] mt-0.5">

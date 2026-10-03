@@ -154,7 +154,7 @@ export function ActivitySwipeStack({
   return (
     <div className="flex-1 flex flex-col justify-between px-4 pb-2 relative">
       {/* Cards container with Apple depth & materials */}
-      <div className="relative w-full h-[510px] sm:h-[530px] flex items-center justify-center">
+      <div className="relative w-full h-[clamp(370px,52vh,440px)] flex items-center justify-center">
         {/* Next Card underneath: calibrated Apple continuous depth */}
         {nextItem && (
           <div className="absolute inset-0 z-0 scale-[0.95] translate-y-3 opacity-70 pointer-events-none transition-all duration-300">

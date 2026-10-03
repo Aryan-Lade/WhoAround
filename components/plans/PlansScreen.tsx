@@ -48,11 +48,17 @@ export function PlansScreen({
           className={`flex-1 py-2 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5 apple-pressable ${
             tab === "interested"
               ? "apple-segmented-item-active"
-              : "text-zinc-400 hover:text-zinc-200"
+              : "text-zinc-500 hover:text-zinc-900"
           }`}
         >
           <span>Interested</span>
-          <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-white/10 text-zinc-300 font-bold">
+          <span
+            className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
+              tab === "interested"
+                ? "bg-orange-500/10 text-orange-600"
+                : "bg-black/5 text-zinc-600"
+            }`}
+          >
             {interestedActivities.length}
           </span>
         </button>
@@ -62,11 +68,17 @@ export function PlansScreen({
           className={`flex-1 py-2 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5 apple-pressable ${
             tab === "created"
               ? "apple-segmented-item-active"
-              : "text-zinc-400 hover:text-zinc-200"
+              : "text-zinc-500 hover:text-zinc-900"
           }`}
         >
           <span>Your Plans</span>
-          <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-white/10 text-zinc-300 font-bold">
+          <span
+            className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
+              tab === "created"
+                ? "bg-orange-500/10 text-orange-600"
+                : "bg-black/5 text-zinc-600"
+            }`}
+          >
             {createdActivities.length}
           </span>
         </button>

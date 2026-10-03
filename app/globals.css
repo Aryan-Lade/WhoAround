@@ -1,6 +1,21 @@
 @import "tailwindcss";
 
 :root {
+  --background: #fbfbfd;
+  --foreground: #1d1d1f;
+  --card: #ffffff;
+  --card-foreground: #1d1d1f;
+  --accent: #f97316;
+  --accent-foreground: #ffffff;
+  --muted: #f2f2f7;
+  --muted-foreground: #6e6e73;
+  --border: rgba(0, 0, 0, 0.08);
+  --glass-surface: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+}
+
+.dark {
   --background: #000000;
   --foreground: #f5f5f7;
   --card: #16161a;
@@ -24,7 +39,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #030305;
+  background-color: #f2f2f7;
   color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
@@ -47,23 +62,23 @@ body {
 }
 
 /* ========================================================
-   APPLE DESIGN SYSTEM UTILITY CLASSES (USING @apply)
+   APPLE DESIGN SYSTEM UTILITY CLASSES (LIGHT MODE DEFAULT)
    ======================================================== */
 
 /* Apple Display & Typography */
 .apple-display-title {
-  @apply font-black text-white leading-[1.06];
+  @apply font-black text-zinc-900 leading-[1.06];
   letter-spacing: -0.035em;
   font-optical-sizing: auto;
 }
 
 .apple-heading {
-  @apply font-bold text-white leading-tight;
+  @apply font-bold text-zinc-900 leading-tight;
   letter-spacing: -0.022em;
 }
 
 .apple-subheadline {
-  @apply text-sm text-zinc-400 font-normal leading-relaxed;
+  @apply text-sm text-zinc-600 font-normal leading-relaxed;
   letter-spacing: -0.01em;
 }
 
@@ -82,53 +97,52 @@ body {
 
 /* Apple Translucent Materials & Glass */
 .apple-glass {
-  background: rgba(18, 18, 22, 0.72);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(24px) saturate(190%);
   -webkit-backdrop-filter: blur(24px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
 }
 
 .apple-glass-heavy {
-  background: rgba(12, 12, 16, 0.88);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(32px) saturate(200%);
   -webkit-backdrop-filter: blur(32px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-top: 1px solid rgba(255, 255, 255, 0.26);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.12);
 }
 
 .apple-nav-dock {
-  background: rgba(15, 15, 20, 0.82);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(28px) saturate(190%);
   -webkit-backdrop-filter: blur(28px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 /* Apple Cards & Interactive Surfaces */
 .apple-card {
   @apply rounded-[28px] overflow-hidden;
-  background: rgba(22, 22, 28, 0.65);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .apple-card-interactive {
   @apply rounded-[28px] overflow-hidden transition-all duration-200;
-  background: rgba(22, 22, 28, 0.65);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 6px 24px -4px rgba(0, 0, 0, 0.05);
 }
 .apple-card-interactive:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.7);
+  border-color: rgba(0, 0, 0, 0.14);
+  box-shadow: 0 12px 32px -6px rgba(0, 0, 0, 0.08);
 }
 .apple-card-interactive:active {
   transform: scale(0.98);
@@ -137,25 +151,24 @@ body {
 /* Apple Buttons */
 .apple-btn-primary {
   @apply py-3.5 px-6 rounded-2xl font-bold text-white flex items-center justify-center gap-2 transition-transform duration-100 ease-out;
-  background: linear-gradient(180deg, #fb923c 0%, #ea580c 100%);
+  background: linear-gradient(180deg, #f97316 0%, #ea580c 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 8px 24px -4px rgba(234, 88, 12, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px -4px rgba(234, 88, 12, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 .apple-btn-primary:active {
   transform: scale(0.97);
 }
 
 .apple-btn-secondary {
-  @apply py-3 px-4 rounded-xl font-semibold text-zinc-200 flex items-center justify-center gap-2 transition-transform duration-100 ease-out;
-  background: rgba(255, 255, 255, 0.08);
+  @apply py-3 px-4 rounded-xl font-semibold text-zinc-800 flex items-center justify-center gap-2 transition-transform duration-100 ease-out;
+  background: rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 .apple-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  background: rgba(0, 0, 0, 0.08);
+  color: #000000;
 }
 .apple-btn-secondary:active {
   transform: scale(0.97);
@@ -166,56 +179,53 @@ body {
   @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* Apple Sheet / Bottom Drawer */
 .apple-sheet {
-  background: rgba(16, 16, 20, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(36px) saturate(200%);
   -webkit-backdrop-filter: blur(36px) saturate(200%);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 -20px 60px -10px rgba(0, 0, 0, 0.85);
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+  box-shadow: 0 -20px 60px -10px rgba(0, 0, 0, 0.15);
 }
 
 /* Grab handle for bottom sheets */
 .apple-grab-handle {
   @apply w-10 h-1 rounded-full mx-auto my-2.5;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 /* iOS Segmented Control */
 .apple-segmented-control {
   @apply p-1 rounded-2xl flex items-center;
-  background: rgba(28, 28, 35, 0.7);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .apple-segmented-item-active {
-  @apply rounded-xl font-semibold text-white shadow-md;
-  background: rgba(255, 255, 255, 0.16);
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  @apply rounded-xl font-semibold text-zinc-900 shadow-md;
+  background: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 /* Input Fields */
 .apple-input {
-  @apply w-full px-4 py-3.5 rounded-2xl text-white placeholder-zinc-500 text-sm focus:outline-none transition-all;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  @apply w-full px-4 py-3.5 rounded-2xl text-zinc-900 placeholder-zinc-400 text-sm focus:outline-none transition-all;
+  background: rgba(0, 0, 0, 0.035);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .apple-input:focus {
   border-color: #f97316;
-  background: rgba(255, 255, 255, 0.09);
-  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.18);
 }
 
 /* Glow */
 .glow-accent {
-  box-shadow: 0 0 25px -5px rgba(249, 115, 22, 0.35);
+  box-shadow: 0 0 20px -4px rgba(249, 115, 22, 0.4);
 }
 
 /* Mobile shell styling on desktop */
@@ -225,12 +235,12 @@ body {
   min-height: 100dvh;
   margin: 0 auto;
   position: relative;
-  background-color: #070709;
+  background-color: #fbfbfd;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 60px -10px rgba(0, 0, 0, 0.85);
-  border-left: 1px solid rgba(255, 255, 255, 0.06);
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 50px -10px rgba(0, 0, 0, 0.09);
+  border-left: 1px solid rgba(0, 0, 0, 0.06);
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* Accessibility / Reduced Motion */
@@ -253,6 +263,6 @@ body {
   .apple-card,
   .apple-sheet {
     backdrop-filter: none !important;
-    background: #121216 !important;
+    background: #ffffff !important;
   }
 }

@@ -13,14 +13,14 @@ interface BottomNavProps {
 export function BottomNav({ activeTab, onChangeTab, plansCount = 0 }: BottomNavProps) {
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-40 max-w-[480px] mx-auto pointer-events-none p-3.5 pb-6">
-      <div className="pointer-events-auto apple-nav-dock rounded-[26px] px-3.5 py-2 flex items-center justify-around shadow-2xl">
+      <div className="pointer-events-auto apple-nav-dock rounded-[28px] px-3.5 py-2 flex items-center justify-around shadow-xl">
         {/* Explore */}
         <button
           onClick={() => onChangeTab("explore")}
           className={`flex flex-col items-center gap-1 py-1 px-3 rounded-2xl transition-all relative apple-pressable ${
             activeTab === "explore"
-              ? "text-orange-400 font-semibold"
-              : "text-zinc-400 hover:text-zinc-200"
+              ? "text-orange-600 font-semibold"
+              : "text-zinc-400 hover:text-zinc-700"
           }`}
         >
           <Compass className={`w-5 h-5 transition-transform ${activeTab === "explore" ? "scale-105" : ""}`} />
@@ -35,8 +35,8 @@ export function BottomNav({ activeTab, onChangeTab, plansCount = 0 }: BottomNavP
           onClick={() => onChangeTab("plans")}
           className={`flex flex-col items-center gap-1 py-1 px-3 rounded-2xl transition-all relative apple-pressable ${
             activeTab === "plans"
-              ? "text-orange-400 font-semibold"
-              : "text-zinc-400 hover:text-zinc-200"
+              ? "text-orange-600 font-semibold"
+              : "text-zinc-400 hover:text-zinc-700"
           }`}
         >
           <div className="relative">
@@ -59,10 +59,10 @@ export function BottomNav({ activeTab, onChangeTab, plansCount = 0 }: BottomNavP
           className="flex flex-col items-center group -mt-5 apple-pressable"
           title="Make a plan"
         >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-b from-orange-400 to-orange-600 text-white flex items-center justify-center shadow-xl shadow-orange-500/35 border-2 border-zinc-950">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-b from-orange-500 to-orange-600 text-white flex items-center justify-center shadow-xl shadow-orange-500/35 border-2 border-white">
             <Plus className="w-6 h-6 stroke-[2.5]" />
           </div>
-          <span className={`text-[10px] mt-1 tracking-tight ${activeTab === "create" ? "text-orange-400 font-semibold" : "text-zinc-400"}`}>
+          <span className={`text-[10px] mt-1 tracking-tight ${activeTab === "create" ? "text-orange-600 font-semibold" : "text-zinc-400"}`}>
             Create
           </span>
         </button>
@@ -72,8 +72,8 @@ export function BottomNav({ activeTab, onChangeTab, plansCount = 0 }: BottomNavP
           onClick={() => onChangeTab("profile")}
           className={`flex flex-col items-center gap-1 py-1 px-3 rounded-2xl transition-all relative apple-pressable ${
             activeTab === "profile"
-              ? "text-orange-400 font-semibold"
-              : "text-zinc-400 hover:text-zinc-200"
+              ? "text-orange-600 font-semibold"
+              : "text-zinc-400 hover:text-zinc-700"
           }`}
         >
           <User className={`w-5 h-5 transition-transform ${activeTab === "profile" ? "scale-105" : ""}`} />

@@ -21,7 +21,7 @@ export function SwipeControls({
   disabled = false,
 }: SwipeControlsProps) {
   return (
-    <div className="flex items-center justify-center gap-4 py-3 px-4 z-20">
+    <div className="flex items-center justify-center gap-4 py-1.5 px-4 z-20">
       {/* Rewind / Undo */}
       <button
         onClick={onUndo}
@@ -29,8 +29,8 @@ export function SwipeControls({
         aria-label="Undo last swipe"
         className={`w-11 h-11 rounded-full flex items-center justify-center transition-all apple-pressable ${
           canUndo && !disabled
-            ? "bg-white/10 hover:bg-white/15 border border-white/12 text-amber-400 shadow-md"
-            : "bg-white/5 border border-white/5 text-zinc-600 cursor-not-allowed"
+            ? "bg-white border border-black/8 text-amber-500 hover:bg-zinc-50 shadow-sm"
+            : "bg-black/5 border border-black/5 text-zinc-400 cursor-not-allowed"
         }`}
         title="Undo last swipe"
       >
@@ -44,8 +44,8 @@ export function SwipeControls({
         aria-label="Skip activity"
         className={`w-14 h-14 rounded-full flex items-center justify-center transition-all apple-pressable ${
           disabled
-            ? "bg-white/5 border border-white/5 text-zinc-600 cursor-not-allowed"
-            : "bg-zinc-900/80 hover:bg-rose-500/15 border border-rose-500/30 text-rose-400 shadow-lg shadow-rose-950/30"
+            ? "bg-black/5 border border-black/5 text-zinc-400 cursor-not-allowed"
+            : "bg-white hover:bg-rose-50/60 border border-rose-200 text-rose-500 shadow-md shadow-rose-500/10"
         }`}
         title="Skip activity"
       >
@@ -59,8 +59,8 @@ export function SwipeControls({
         aria-label="View activity details"
         className={`w-11 h-11 rounded-full flex items-center justify-center transition-all apple-pressable ${
           disabled
-            ? "bg-white/5 border border-white/5 text-zinc-600 cursor-not-allowed"
-            : "bg-white/10 hover:bg-white/15 border border-white/12 text-zinc-200 hover:text-white shadow-md"
+            ? "bg-black/5 border border-black/5 text-zinc-400 cursor-not-allowed"
+            : "bg-white hover:bg-zinc-50 border border-black/8 text-zinc-700 hover:text-zinc-950 shadow-sm"
         }`}
         title="View details"
       >
@@ -74,7 +74,7 @@ export function SwipeControls({
         aria-label="Mark as interested"
         className={`w-14 h-14 rounded-full flex items-center justify-center transition-all apple-pressable ${
           disabled
-            ? "bg-white/5 border border-white/5 text-zinc-600 cursor-not-allowed"
+            ? "bg-black/5 border border-black/5 text-zinc-400 cursor-not-allowed"
             : "bg-gradient-to-b from-emerald-500 to-teal-600 text-white shadow-lg shadow-emerald-500/30 border-t border-white/25"
         }`}
         title="I'm interested!"

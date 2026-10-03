@@ -20,17 +20,17 @@ export function CitySelection({
   onBack,
 }: CitySelectionProps) {
   return (
-    <div className="relative min-h-dvh flex flex-col justify-between p-6 bg-gradient-to-b from-[#0e0e13] via-[#070709] to-[#020204]">
+    <div className="relative min-h-dvh flex flex-col justify-between p-6 bg-gradient-to-b from-[#fbfbfd] via-[#f5f5f7] to-[#ebebf0]">
       {/* Top Header / Step indicator */}
       <div>
         <div className="flex items-center justify-between pt-4 pb-6">
           <button
             onClick={onBack}
-            className="text-xs text-zinc-400 hover:text-white px-2 py-1 -ml-2 transition-colors apple-pressable"
+            className="text-xs text-zinc-500 hover:text-zinc-900 px-2 py-1 -ml-2 transition-colors apple-pressable font-medium"
           >
             ← Back
           </button>
-          <span className="text-[11px] font-bold tracking-wider text-orange-400 uppercase">
+          <span className="text-[11px] font-bold tracking-wider text-orange-600 uppercase">
             Step 1 of 3
           </span>
         </div>
@@ -40,8 +40,8 @@ export function CitySelection({
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", damping: 25, stiffness: 280 }}
         >
-          <div className="apple-badge bg-orange-500/15 text-orange-300 border-orange-500/30 mb-3">
-            <MapPin className="w-3.5 h-3.5 text-orange-400" />
+          <div className="apple-badge bg-orange-500/15 text-orange-700 border-orange-500/30 mb-3">
+            <MapPin className="w-3.5 h-3.5 text-orange-600" />
             <span>Location Discovery</span>
           </div>
 
@@ -67,17 +67,17 @@ export function CitySelection({
               onClick={() => onSelectCity(city.id)}
               className={`w-full text-left p-3.5 rounded-2xl border transition-all flex items-center justify-between apple-pressable group ${
                 isSelected
-                  ? "bg-orange-500/12 border-orange-500/60 shadow-[0_0_24px_-4px_rgba(249,115,22,0.25)]"
-                  : "bg-white/5 border-white/10 hover:border-white/20 hover:bg-white/8"
+                  ? "bg-orange-500/10 border-orange-500/60 shadow-[0_0_24px_-4px_rgba(249,115,22,0.2)]"
+                  : "bg-white/90 border-black/6 hover:border-black/15 hover:bg-white shadow-sm"
               }`}
             >
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="font-bold text-white text-base tracking-tight">
+                  <span className="font-bold text-zinc-900 text-base tracking-tight">
                     {city.name}
                   </span>
                   {city.id === "Nagpur" && (
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-300 border border-orange-500/35">
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-500/15 text-orange-700 border border-orange-500/30">
                       Demo Default
                     </span>
                   )}
@@ -90,7 +90,7 @@ export function CitySelection({
                 className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 ml-3 transition-colors ${
                   isSelected
                     ? "bg-orange-500 text-white shadow-md shadow-orange-500/30"
-                    : "border border-white/20 bg-white/5"
+                    : "border border-black/15 bg-white"
                 }`}
               >
                 {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}

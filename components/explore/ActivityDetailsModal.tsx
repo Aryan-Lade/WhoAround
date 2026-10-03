@@ -78,7 +78,7 @@ export function ActivityDetailsModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/75 backdrop-blur-md"
+          className="fixed inset-0 bg-black/40 backdrop-blur-md"
         />
 
         {/* Apple Modal Sheet */}
@@ -163,7 +163,7 @@ export function ActivityDetailsModal({
                 </h1>
 
                 {/* Host profile info */}
-                <div className="flex items-center gap-3 mt-3 pt-3 border-t border-white/8">
+                <div className="flex items-center gap-3 mt-3 pt-3 border-t border-black/8">
                   <div className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-orange-500/30">
                     <Image
                       src={activity.hostAvatar}
@@ -175,52 +175,52 @@ export function ActivityDetailsModal({
                   </div>
                   <div>
                     <p className="apple-caption uppercase">Hosted by</p>
-                    <p className="text-sm font-bold text-white">{activity.host}</p>
+                    <p className="text-sm font-bold text-zinc-900">{activity.host}</p>
                   </div>
                 </div>
               </div>
 
               {/* Key Logistics Cards */}
               <div className="grid grid-cols-2 gap-2.5">
-                <div className="p-3.5 rounded-2xl bg-white/6 border border-white/10 flex items-start gap-2.5">
-                  <Calendar className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
+                <div className="p-3.5 rounded-2xl bg-black/[0.03] border border-black/8 flex items-start gap-2.5">
+                  <Calendar className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
                   <div>
                     <p className="apple-caption">Date & Time</p>
-                    <p className="text-xs font-bold text-white mt-0.5">
+                    <p className="text-xs font-bold text-zinc-900 mt-0.5">
                       {activity.date}
                     </p>
-                    <p className="text-[11px] text-zinc-300">{activity.time}</p>
+                    <p className="text-[11px] text-zinc-600">{activity.time}</p>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-white/6 border border-white/10 flex items-start gap-2.5">
-                  <MapPin className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
+                <div className="p-3.5 rounded-2xl bg-black/[0.03] border border-black/8 flex items-start gap-2.5">
+                  <MapPin className="w-4 h-4 text-orange-500 shrink-0 mt-0.5" />
                   <div>
                     <p className="apple-caption">Public Venue</p>
-                    <p className="text-xs font-bold text-white mt-0.5 truncate">
+                    <p className="text-xs font-bold text-zinc-900 mt-0.5 truncate">
                       {activity.location}
                     </p>
-                    <p className="text-[11px] text-zinc-300">{activity.city}</p>
+                    <p className="text-[11px] text-zinc-600">{activity.city}</p>
                   </div>
                 </div>
 
                 {activity.cost && (
-                  <div className="p-3.5 rounded-2xl bg-white/6 border border-white/10 flex items-start gap-2.5">
-                    <Coins className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                  <div className="p-3.5 rounded-2xl bg-black/[0.03] border border-black/8 flex items-start gap-2.5">
+                    <Coins className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                     <div>
                       <p className="apple-caption">Estimated Cost</p>
-                      <p className="text-xs font-bold text-white mt-0.5">
+                      <p className="text-xs font-bold text-zinc-900 mt-0.5">
                         {activity.cost}
                       </p>
                     </div>
                   </div>
                 )}
 
-                <div className="p-3.5 rounded-2xl bg-white/6 border border-white/10 flex items-start gap-2.5">
-                  <Users className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <div className="p-3.5 rounded-2xl bg-black/[0.03] border border-black/8 flex items-start gap-2.5">
+                  <Users className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
                     <p className="apple-caption">Group Capacity</p>
-                    <p className="text-xs font-bold text-white mt-0.5">
+                    <p className="text-xs font-bold text-zinc-900 mt-0.5">
                       Up to {activity.capacity} people
                     </p>
                   </div>
@@ -230,7 +230,7 @@ export function ActivityDetailsModal({
               {/* Description */}
               <div>
                 <h4 className="apple-caption uppercase mb-2">About this plan</h4>
-                <p className="text-sm text-zinc-200 leading-relaxed bg-white/5 p-4 rounded-2xl border border-white/8">
+                <p className="text-sm text-zinc-700 leading-relaxed bg-black/[0.03] p-4 rounded-2xl border border-black/6">
                   {activity.description}
                 </p>
               </div>
@@ -243,7 +243,7 @@ export function ActivityDetailsModal({
                     {activity.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="apple-badge bg-white/6 text-zinc-300 border-white/10"
+                        className="apple-badge bg-black/[0.04] text-zinc-700 border-black/8"
                       >
                         #{tag}
                       </span>
@@ -256,12 +256,12 @@ export function ActivityDetailsModal({
               <div className="pt-2">
                 <div className="flex items-center justify-between mb-3">
                   <h4 className="apple-caption uppercase flex items-center gap-1.5">
-                    <Users className="w-3.5 h-3.5 text-orange-400" />
+                    <Users className="w-3.5 h-3.5 text-orange-500" />
                     People you might meet ({activity.interestedCount})
                   </h4>
                   <button
                     onClick={onOpenAttendees}
-                    className="text-xs font-semibold text-orange-400 hover:text-orange-300 apple-pressable"
+                    className="text-xs font-semibold text-orange-600 hover:text-orange-700 apple-pressable"
                   >
                     View all
                   </button>
@@ -275,10 +275,10 @@ export function ActivityDetailsModal({
                     return (
                       <div
                         key={attendee.id}
-                        className="p-3 rounded-2xl bg-white/6 border border-white/8 flex items-center justify-between"
+                        className="p-3 rounded-2xl bg-black/[0.03] border border-black/8 flex items-center justify-between"
                       >
                         <div className="flex items-center gap-3">
-                          <div className="relative w-9 h-9 rounded-full overflow-hidden bg-zinc-800">
+                          <div className="relative w-9 h-9 rounded-full overflow-hidden bg-zinc-200">
                             <Image
                               src={attendee.avatar}
                               alt={attendee.name}
@@ -288,21 +288,21 @@ export function ActivityDetailsModal({
                             />
                           </div>
                           <div>
-                            <p className="text-xs font-bold text-white">
+                            <p className="text-xs font-bold text-zinc-900">
                               {attendee.name.split(" ")[0]}
                             </p>
-                            <p className="apple-caption text-[11px] text-zinc-400">
+                            <p className="apple-caption text-[11px] text-zinc-500">
                               {attendee.role || attendee.bio?.slice(0, 30)}
                             </p>
                           </div>
                         </div>
 
                         {shared.length > 0 ? (
-                          <span className="apple-badge bg-emerald-500/15 text-emerald-400 border-emerald-500/30 text-[11px]">
+                          <span className="apple-badge bg-emerald-50 text-emerald-700 border-emerald-200 text-[11px]">
                             You both like {shared[0]}
                           </span>
                         ) : (
-                          <span className="apple-caption text-[11px] text-zinc-400">
+                          <span className="apple-caption text-[11px] text-zinc-500">
                             {attendee.interests.slice(0, 2).join(" · ")}
                           </span>
                         )}
@@ -313,11 +313,11 @@ export function ActivityDetailsModal({
               </div>
 
               {/* Safety notice banner */}
-              <div className="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/25 flex items-start gap-2.5">
-                <Shield className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+              <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200/80 flex items-start gap-2.5">
+                <Shield className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs font-semibold text-zinc-100">Safety First</p>
-                  <p className="apple-caption text-[11px] text-zinc-400 mt-0.5 leading-relaxed">
+                  <p className="text-xs font-semibold text-zinc-900">Safety First</p>
+                  <p className="apple-caption text-[11px] text-zinc-600 mt-0.5 leading-relaxed">
                     Always meet in public places. Stay aware. You control what you share. Never share financial or sensitive details.
                   </p>
                 </div>
@@ -326,12 +326,12 @@ export function ActivityDetailsModal({
           </div>
 
           {/* Sticky Bottom Action Bar with Apple Translucency */}
-          <div className="absolute bottom-0 inset-x-0 p-4 apple-nav-dock border-t border-white/12 flex flex-col gap-2">
+          <div className="absolute bottom-0 inset-x-0 p-4 apple-nav-dock border-t border-black/8 flex flex-col gap-2">
             <button
               onClick={handleInterestedClick}
               className={`w-full py-4 px-6 rounded-2xl font-bold text-base transition-all flex items-center justify-center gap-2 apple-pressable ${
                 isInterested
-                  ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
+                  ? "bg-emerald-600 text-white shadow-md"
                   : "apple-btn-primary"
               }`}
             >
@@ -349,7 +349,7 @@ export function ActivityDetailsModal({
             </button>
 
             {isInterested && (
-              <p className="text-center text-[11px] font-semibold text-emerald-400 animate-fadeIn">
+              <p className="text-center text-[11px] font-semibold text-emerald-700 animate-fadeIn">
                 Nice. You won&apos;t be going alone. Added to My Plans.
               </p>
             )}
@@ -358,16 +358,16 @@ export function ActivityDetailsModal({
           {/* Safety & Report Bottom Sheet */}
           <AnimatePresence>
             {showSafetySheet && (
-              <div className="absolute inset-0 z-50 bg-black/90 p-6 flex flex-col justify-between">
+              <div className="absolute inset-0 z-50 bg-white/95 backdrop-blur-xl p-6 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                  <div className="flex items-center justify-between pb-3 border-b border-black/10">
                     <h3 className="apple-heading text-base flex items-center gap-2">
-                      <Shield className="w-4 h-4 text-orange-400" />
+                      <Shield className="w-4 h-4 text-orange-500" />
                       Trust & Safety Options
                     </h3>
                     <button
                       onClick={() => setShowSafetySheet(false)}
-                      className="p-1 rounded-full text-zinc-400 hover:text-white apple-pressable"
+                      className="p-1 rounded-full text-zinc-500 hover:text-zinc-900 apple-pressable"
                     >
                       <X className="w-5 h-5" />
                     </button>
@@ -383,7 +383,7 @@ export function ActivityDetailsModal({
                         setReported(true);
                         setTimeout(() => setShowSafetySheet(false), 1500);
                       }}
-                      className="w-full text-left p-3.5 rounded-2xl bg-white/6 border border-white/10 text-xs font-semibold text-rose-400 hover:bg-white/10 apple-pressable"
+                      className="w-full text-left p-3.5 rounded-2xl bg-rose-50 border border-rose-200 text-xs font-semibold text-rose-600 hover:bg-rose-100 apple-pressable"
                     >
                       {reported ? "Activity Reported ✓" : "Report this activity"}
                     </button>
@@ -393,7 +393,7 @@ export function ActivityDetailsModal({
                         setShowSafetySheet(false);
                         onClose();
                       }}
-                      className="w-full text-left p-3.5 rounded-2xl bg-white/6 border border-white/10 text-xs font-semibold text-zinc-300 hover:bg-white/10 apple-pressable"
+                      className="w-full text-left p-3.5 rounded-2xl bg-black/[0.03] border border-black/8 text-xs font-semibold text-zinc-800 hover:bg-black/[0.06] apple-pressable"
                     >
                       Block host & hide plans
                     </button>

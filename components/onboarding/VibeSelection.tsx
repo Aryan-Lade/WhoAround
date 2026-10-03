@@ -22,17 +22,17 @@ export function VibeSelection({
   const canProceed = selectedVibes.length >= 1;
 
   return (
-    <div className="relative min-h-dvh flex flex-col justify-between p-6 bg-gradient-to-b from-[#0e0e13] via-[#070709] to-[#020204]">
+    <div className="relative min-h-dvh flex flex-col justify-between p-6 bg-gradient-to-b from-[#fbfbfd] via-[#f5f5f7] to-[#ebebf0]">
       {/* Top Header */}
       <div>
         <div className="flex items-center justify-between pt-4 pb-4">
           <button
             onClick={onBack}
-            className="text-xs text-zinc-400 hover:text-white px-2 py-1 -ml-2 transition-colors apple-pressable"
+            className="text-xs text-zinc-500 hover:text-zinc-900 px-2 py-1 -ml-2 transition-colors apple-pressable font-medium"
           >
             ← Back
           </button>
-          <span className="text-[11px] font-bold tracking-wider text-orange-400 uppercase">
+          <span className="text-[11px] font-bold tracking-wider text-orange-600 uppercase">
             Step 3 of 3
           </span>
         </div>
@@ -42,8 +42,8 @@ export function VibeSelection({
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", damping: 25, stiffness: 280 }}
         >
-          <div className="apple-badge bg-orange-500/15 text-orange-300 border-orange-500/30 mb-2.5">
-            <Compass className="w-3.5 h-3.5 text-orange-400" />
+          <div className="apple-badge bg-orange-500/15 text-orange-700 border-orange-500/30 mb-2.5">
+            <Compass className="w-3.5 h-3.5 text-orange-600" />
             <span>Intent & Atmosphere</span>
           </div>
 
@@ -68,19 +68,19 @@ export function VibeSelection({
               animate={{ opacity: 1, y: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300, delay: idx * 0.04 }}
               onClick={() => onToggleVibe(vibe.id)}
-              className={`w-full text-left p-3.5 rounded-2xl border transition-all flex items-center justify-between apple-pressable group ${
+              className={`w-full text-left p-3.5 rounded-2xl border transition-all flex items-center justify-between apple-pressable group shadow-sm ${
                 isSelected
-                  ? "bg-zinc-900/90 border-orange-500 shadow-[0_0_20px_-4px_rgba(249,115,22,0.3)] ring-1 ring-orange-500/40"
-                  : "bg-white/6 border-white/10 hover:border-white/20 hover:bg-white/10"
+                  ? "bg-white border-orange-500 shadow-[0_0_20px_-4px_rgba(249,115,22,0.25)] ring-2 ring-orange-500/30"
+                  : "bg-white/80 border-black/6 hover:border-black/15 hover:bg-white"
               }`}
             >
               <div className="flex items-center gap-3">
                 <span className="text-2xl">{vibe.emoji}</span>
                 <div>
-                  <span className="font-bold text-sm text-zinc-100 block tracking-tight">
+                  <span className="font-bold text-sm text-zinc-900 block tracking-tight">
                     {vibe.label}
                   </span>
-                  <span className="apple-caption text-xs text-zinc-400 block mt-0.5">
+                  <span className="apple-caption text-xs text-zinc-500 block mt-0.5">
                     {vibe.tagline}
                   </span>
                 </div>
@@ -90,7 +90,7 @@ export function VibeSelection({
                 className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ml-2 transition-colors ${
                   isSelected
                     ? "bg-orange-500 text-white shadow-sm"
-                    : "border border-white/20 bg-white/5"
+                    : "border border-black/15 bg-zinc-50"
                 }`}
               >
                 {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
@@ -108,7 +108,7 @@ export function VibeSelection({
           className={`w-full py-4 px-6 rounded-2xl font-bold text-base transition-all flex items-center justify-center gap-2 apple-pressable ${
             canProceed
               ? "apple-btn-primary shadow-xl"
-              : "bg-zinc-900 text-zinc-600 cursor-not-allowed border border-white/8"
+              : "bg-zinc-200 text-zinc-400 cursor-not-allowed border border-black/5"
           }`}
         >
           <span>Let&apos;s see what&apos;s around</span>

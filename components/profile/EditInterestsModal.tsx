@@ -44,7 +44,7 @@ export function EditInterestsModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/75 backdrop-blur-md"
+          className="fixed inset-0 bg-black/40 backdrop-blur-md"
         />
 
         <motion.div
@@ -57,10 +57,10 @@ export function EditInterestsModal({
           {/* iOS Grab Handle */}
           <div className="apple-grab-handle" />
 
-          <div className="flex items-center justify-between pb-3 border-b border-white/10">
+          <div className="flex items-center justify-between pb-3 border-b border-black/8">
             <div>
               <h3 className="apple-heading text-base flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-orange-400" />
+                <Sparkles className="w-4 h-4 text-orange-500" />
                 Edit Interests
               </h3>
               <p className="apple-subheadline text-xs mt-0.5">
@@ -69,7 +69,7 @@ export function EditInterestsModal({
             </div>
             <button
               onClick={onClose}
-              className="p-1.5 text-zinc-400 hover:text-white rounded-full bg-white/10 apple-pressable transition-colors"
+              className="p-1.5 text-zinc-500 hover:text-zinc-900 rounded-full bg-black/5 hover:bg-black/10 apple-pressable transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
@@ -84,8 +84,8 @@ export function EditInterestsModal({
                   onClick={() => toggle(cat.id)}
                   className={`p-3 rounded-2xl border text-left flex items-center justify-between transition-all apple-pressable ${
                     isChecked
-                      ? "bg-zinc-800/90 border-orange-500 text-white shadow-sm ring-1 ring-orange-500/40"
-                      : "bg-white/6 border-white/8 text-zinc-400 hover:bg-white/10"
+                      ? "bg-orange-50 border-orange-500 text-orange-950 shadow-xs ring-1 ring-orange-500/30"
+                      : "bg-black/[0.03] border-black/8 text-zinc-700 hover:bg-black/[0.06]"
                   }`}
                 >
                   <div className="flex items-center gap-2">
@@ -93,14 +93,14 @@ export function EditInterestsModal({
                     <span className="text-xs font-semibold">{cat.label}</span>
                   </div>
                   {isChecked && (
-                    <Check className="w-3.5 h-3.5 text-orange-400 stroke-[3]" />
+                    <Check className="w-3.5 h-3.5 text-orange-500 stroke-[3]" />
                   )}
                 </button>
               );
             })}
           </div>
 
-          <div className="pt-3 border-t border-white/10 flex gap-2">
+          <div className="pt-3 border-t border-black/8 flex gap-2">
             <button
               onClick={onClose}
               className="apple-btn-secondary w-1/2 text-xs"

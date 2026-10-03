@@ -127,8 +127,8 @@ export function CreatePlanScreen({
     <div className="flex-1 flex flex-col w-full h-full pb-28 px-4 pt-4 overflow-y-auto no-scrollbar">
       {/* Header */}
       <div className="mb-4">
-        <div className="apple-badge bg-orange-500/15 text-orange-300 border-orange-500/30 mb-2">
-          <Sparkles className="w-3.5 h-3.5 text-orange-400" />
+        <div className="apple-badge bg-orange-500/10 text-orange-600 border-orange-500/20 mb-2">
+          <Sparkles className="w-3.5 h-3.5 text-orange-500" />
           <span>Host a casual plan</span>
         </div>
         <h1 className="text-3xl apple-display-title">
@@ -188,8 +188,8 @@ export function CreatePlanScreen({
                   onClick={() => setCategory(cat.id)}
                   className={`py-2 px-2.5 rounded-xl border text-xs font-semibold flex items-center justify-center gap-1.5 transition-all truncate apple-pressable ${
                     isSelected
-                      ? "bg-orange-500/20 border-orange-500 text-orange-200 shadow-sm"
-                      : "bg-white/6 border-white/10 text-zinc-400 hover:text-zinc-200"
+                      ? "bg-orange-50 border-orange-500 text-orange-600 shadow-sm"
+                      : "bg-black/[0.03] border-black/8 text-zinc-600 hover:text-zinc-900"
                   }`}
                 >
                   <span>{cat.emoji}</span>
@@ -214,7 +214,7 @@ export function CreatePlanScreen({
                 placeholder="Saturday, Oct 11"
                 className="apple-input pl-9 text-xs"
               />
-              <Calendar className="w-4 h-4 text-orange-400 absolute left-3 top-3.5" />
+              <Calendar className="w-4 h-4 text-orange-500 absolute left-3 top-3.5" />
             </div>
           </div>
 
@@ -246,7 +246,7 @@ export function CreatePlanScreen({
               placeholder="e.g. Nagpur Sports Club / Loft Coworking"
               className="apple-input pl-9"
             />
-            <MapPin className="w-4 h-4 text-orange-400 absolute left-3 top-4" />
+            <MapPin className="w-4 h-4 text-orange-500 absolute left-3 top-4" />
           </div>
           <p className="apple-caption text-[11px] mt-1">
             City: {city} · Public meeting locations only
@@ -258,9 +258,9 @@ export function CreatePlanScreen({
           <label className="block apple-caption uppercase mb-1.5">
             How many people? (1–10)
           </label>
-          <div className="flex items-center justify-between p-3.5 rounded-2xl bg-white/6 border border-white/10">
-            <div className="flex items-center gap-2 text-xs text-zinc-300">
-              <Users className="w-4 h-4 text-orange-400" />
+          <div className="flex items-center justify-between p-3.5 rounded-2xl bg-black/[0.03] border border-black/8">
+            <div className="flex items-center gap-2 text-xs text-zinc-700">
+              <Users className="w-4 h-4 text-orange-500" />
               <span>Looking for group of:</span>
             </div>
 
@@ -268,17 +268,17 @@ export function CreatePlanScreen({
               <button
                 type="button"
                 onClick={() => setCapacity(Math.max(1, capacity - 1))}
-                className="w-8 h-8 rounded-xl bg-white/10 hover:bg-white/15 text-white flex items-center justify-center transition-colors apple-pressable"
+                className="w-8 h-8 rounded-xl bg-black/5 hover:bg-black/10 text-zinc-800 flex items-center justify-center transition-colors apple-pressable"
               >
                 <Minus className="w-4 h-4" />
               </button>
-              <span className="text-base font-bold text-white w-6 text-center">
+              <span className="text-base font-bold text-zinc-900 w-6 text-center">
                 {capacity}
               </span>
               <button
                 type="button"
                 onClick={() => setCapacity(Math.min(10, capacity + 1))}
-                className="w-8 h-8 rounded-xl bg-white/10 hover:bg-white/15 text-white flex items-center justify-center transition-colors apple-pressable"
+                className="w-8 h-8 rounded-xl bg-black/5 hover:bg-black/10 text-zinc-800 flex items-center justify-center transition-colors apple-pressable"
               >
                 <Plus className="w-4 h-4" />
               </button>
