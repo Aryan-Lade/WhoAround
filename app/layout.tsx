@@ -25,8 +25,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full">
-      <body className="min-h-full bg-[#f2f2f7] text-[#1d1d1f] antialiased selection:bg-orange-500/25 selection:text-orange-900">
+    <html lang="en" className="h-full" suppressHydrationWarning>
+      <body
+        className="min-h-full bg-[#f2f2f7] text-[#1d1d1f] antialiased selection:bg-orange-500/25 selection:text-orange-900"
+        suppressHydrationWarning
+      >
         <div className="min-h-dvh flex flex-col justify-start items-center bg-[#f2f2f7]">
           {children}
         </div>
